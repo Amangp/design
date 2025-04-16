@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources | Law & Order</title>
+  <style>
+    /* Base theme colors - black theme */
+    :root {
+      --bg-primary: #e5e5e0;
+      --bg-secondary: #1c1c1c;
+      --text-light: #e5e5e0;
+      --text-dark: #1c1c1c;
+      --accent: #333333;
+      --btn-primary: #1c1c1c;
+      --btn-hover: #333333;
+      --section-padding: 4rem 5%;
+    }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: var(--bg-primary);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    nav ul li {
+      margin: 0 1rem;
+    }
+    
+    nav ul li a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      color: #555;
+    }
+    
+    .free-consultation-btn {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+      font-weight: 600;
+    }
+    
+    .free-consultation-btn:hover {
+      background-color: #333;
+    }
+    
+    /* Page header section */
+    .page-header {
+      background-color: var(--bg-secondary);
+      padding: var(--section-padding);
+      color: var(--text-light);
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .page-header p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    /* Section styling */
+    section {
+      padding: var(--section-padding);
+    }
+    
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Resource categories */
+    .resource-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      justify-content: center;
+    }
+    
+    .category-btn {
+      background-color: transparent;
+      border: 2px solid var(--bg-secondary);
+      color: var(--text-dark);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .category-btn:hover, .category-btn.active {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+    }
+    
+    /* Resource grid */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .resource-card {
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .resource-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .resource-header {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 1.5rem;
+    }
+    
+    .resource-header h3 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+    
+    .resource-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .resource-description {
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .resource-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .resource-tag {
+      background-color: #e0e0e0;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    
+    .resource-links {
+      margin-top: auto;
+    }
+    
+    .resource-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+    }
+    
+    .resource-btn:hover {
+      background-color: #333;
+    }
+    
+    /* Library section */
+    .dark-section {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+    }
+    
+    .template-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .template-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 4px;
+      transition: transform 0.3s;
+    }
+    
+    .template-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .template-item h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .template-item p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .template-item a {
+      color: var(--text-light);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 600;
+    }
+    
+    .template-item a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Expert guidance section */
+    .experts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .expert-card {
+      text-align: center;
+    }
+    
+    .expert-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .expert-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .expert-title {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    
+    .expert-contact {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+    }
+    
+    .expert-contact:hover {
+      background-color: #333;
+    }
+    
+    /* Video resources */
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .video-card {
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .video-thumbnail {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .play-icon {
+      width: 60px;
+      height: 60px;
+      background-color: rgba(0,0,0,0.6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .play-icon:before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-left: 20px solid white;
+      margin-left: 5px;
+    }
+    
+    .video-content {
+      padding: 1.5rem;
+    }
+    
+    .video-content h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .video-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background-color: var(--bg-primary);
+      text-align: center;
+    }
+    
+    .cta-buttons {
+      margin-top: 2rem;
+    }
+    
+    .cta-buttons .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      margin: 0 0.5rem 1rem 0.5rem;
+      text-transform: uppercase;
+    }
+    
+    .cta-buttons .primary {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+    }
+    
+    .cta-buttons .secondary {
+      border: 1px solid var(--text-dark);
+      color: var(--text-dark);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 3rem 5% 2rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-column h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-column a {
+      color: var(--text-light);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    
+    .footer-column a:hover {
+      opacity: 1;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--bg-primary);
+      min-width: 200px;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-item {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: var(--text-dark);
+    }
+    
+    .dropdown-item:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+    
+    /* Resource filter controls */
+    .resource-filters {
+      margin: 2rem 0;
+    }
+    
+    .search-box {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      position: relative;
+      display: flex;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    
+    .search-btn {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      border: none;
+      padding: 0 1.5rem;
+      margin-left: 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      
+      nav ul {
+        display: none;
+      }
+      
+      .cta-buttons .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      
+      .resources-grid,
+      .template-list,
+      .experts-grid,
+      .videos-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .resource-categories {
+        flex-direction: column;
+      }
+      
+      .category-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with navigation -->
+  <header>
+    <div class="logo">
+      Law & Order
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Workplace Rights</a>
+          <div class="dropdown-content">
+            <a class="dropdown-item" href="discrimination.html">Workplace Discrimination</a>
+            <a class="dropdown-item" href="bureaucratic-challenges.html">Policy Challenges</a>
+            <a class="dropdown-item" href="labor-rights.html">Labor Rights & Wages</a>
+            <a class="dropdown-item" href="workplace-safety.html">Workplace Safety</a>
+          </div>
+        </li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="success-stories.html">Success Stories</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="free-consultation-btn">FREE CONSULTATION</a>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>Employee Rights Resources</h1>
+    <p>Access tools, templates, guides, and expert information to help you understand your workplace rights and take action when necessary.</p>
+  </section>
+
+  <!-- Resource Filter Section -->
+  <section>
+    <div class="container">
+      <h2>Find the Right Resources</h2>
+      
+      <div class="resource-filters">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="Search for resources...">
+          <button class="search-btn">Search</button>
+        </div>
+        
+        <div class="resource-categories">
+          <button class="category-btn active">All Resources</button>
+          <button class="category-btn">Documentation Tools</button>
+          <button class="category-btn">Templates & Forms</button>
+          <button class="category-btn">Legal Guides</button>
+          <button class="category-btn">Self-Advocacy</button>
+          <button class="category-btn">Industry-Specific</button>
+        </div>
+      </div>
+      
+      <div class="resources-grid">
+        <!-- Documentation Resources -->
+        <div class="resource-card">
+          <div class="resource-header">
+            <h3>Incident Documentation Kit</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>Comprehensive tools for properly documenting workplace incidents, discrimination, and policy violations. Includes templates, checklists, and best practices.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Documentation</span>
+              <span class="resource-tag">All Issues</span>
+            </div>
+            <div class="resource-links">
+              <a href="resources/documentation-kit.pdf" class="resource-btn">Download PDF</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-header">
+            <h3>Communication Tracker</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>Track all workplace communications related to your issue. Record dates, participants, discussion points, and outcomes for a complete record of interactions.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Documentation</span>
+              <span class="resource-tag">Templates</span>
+            </div>
+            <div class="resource-links">
+              <a href="resources/communication-tracker.xlsx" class="resource-btn">Download Excel</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Legal Resources -->
+        <div class="resource-card">
+          <div class="resource-header">
+            <h3>Employee Rights Handbook</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>Comprehensive guide to federal and state workplace rights. Covers discrimination, harassment, wage issues, safety regulations, leave policies, and more.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Legal Guide</span>
+              <span class="resource-tag">Reference</span>
+            </div>
+            <div class="resource-links">
+              <a href="resources/employee-rights-handbook.pdf" class="resource-btn">Download PDF</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-header">
+            <h3>Workplace Discrimination Laws</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>In-depth analysis of federal and state anti-discrimination laws, protected classes, and how to recognize various forms of workplace discrimination.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Legal Guide</span>
+              <span class="resource-tag">Discrimination</span>
+            </div>
+            <div class="resource-links">
+              <a href="resources/discrimination-laws.pdf" class="resource-btn">Download PDF</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Action Templates -->
+        <div class="resource-card">
+          <div class="resource-header">
+            <h3>Formal Complaint Templates</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>Professional templates for filing formal complaints about discrimination, harassment, wage violations, safety concerns, and other workplace issues.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Templates</span>
+              <span class="resource-tag">Action Tools</span>
+            </div>
+            <div class="resource-links">
+              <a href="resources/complaint-templates.docx" class="resource-btn">Download Word</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-header">
+            <h3>EEOC Charge Filing Guide</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>Step-by-step instructions for filing a discrimination charge with the Equal Employment Opportunity Commission, including required documentation and timelines.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Legal Guide</span>
+              <span class="resource-tag">Discrimination</span>
+            </div>
+            <div class="resource-links">
+              <a href="resources/eeoc-guide.pdf" class="resource-btn">Download PDF</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Industry-Specific Resources -->
+        <div class="resource-card">
+          <div class="resource-header">
+            <h3>Healthcare Worker Rights</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>Specialized guide addressing unique challenges faced by healthcare professionals, including safety protocols, scheduling requirements, and whistleblower protections.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Industry-Specific</span>
+              <span class="resource-tag">Healthcare</span>
+            </div>
+            <div class="resource-links">
+              <a href="resources/healthcare-rights.pdf" class="resource-btn">Download PDF</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-header">
+            <h3>Tech Industry Rights Guide</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>Rights guide specific to technology workers, covering issues like non-compete agreements, intellectual property, discrimination challenges, and contractor vs. employee status.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Industry-Specific</span>
+              <span class="resource-tag">Technology</span>
+            </div>
+            <div class="resource-links">
+              <a href="resources/tech-industry-rights.pdf" class="resource-btn">Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Templates Library Section -->
+  <section class="dark-section">
+    <div class="container">
+      <h2>Template Library</h2>
+      <p>Ready-to-use templates for addressing workplace issues:</p>
+      
+      <div class="template-list">
+        <div class="template-item">
+          <h3>Internal Complaint Letter</h3>
+          <p>Professional template for documenting and reporting workplace issues to management or HR departments.</p>
+          <a href="resources/templates/internal-complaint.docx">Download Template →</a>
+        </div>
+        
+        <div class="template-item">
+          <h3>Incident Log</h3>
+          <p>Structured format for recording dates, times, locations, and details of workplace incidents or policy violations.</p>
+          <a href="resources/templates/incident-log.xlsx">Download Template →</a>
+        </div>
+        
+        <div class="template-item">
+          <h3>OSHA Complaint Form</h3>
+          <p>Pre-formatted template for filing safety complaints with the Occupational Safety and Health Administration.</p>
+          <a href="resources/templates/osha-complaint.docx">Download Template →</a>
+        </div>
+        
+        <div class="template-item">
+          <h3>Wage Claim Form</h3>
+          <p>Form for documenting wage theft, unpaid overtime, or other compensation violations.</p>
+          <a href="resources/templates/wage-claim.docx">Download Template →</a>
+        </div>
+        
+        <div class="template-item">
+          <h3>Reasonable Accommodation Request</h3>
+          <p>Template for requesting workplace accommodations for disabilities or medical conditions.</p>
+          <a href="resources/templates/accommodation-request.docx">Download Template →</a>
+        </div>
+        
+        <div class="template-item">
+          <h3>Witness Statement Form</h3>
+          <p>Standardized format for collecting witness accounts of workplace incidents.</p>
+          <a href="resources/templates/witness-statement.docx">Download Template →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expert Guidance Section -->
+  <section>
+    <div class="container">
+      <h2>Expert Guidance</h2>
+      <p>Connect with professionals who can provide specialized information and support:</p>
+      
+      <div class="experts-grid">
+        <div class="expert-card">
+          <div class="expert-image" style="background-image: url('/api/placeholder/180/180')"></div>
+          <div class="expert-name">Maya Rodriguez</div>
+          <div class="expert-title">Employment Law Attorney</div>
+          <p>Specializes in discrimination and harassment cases</p>
+          <a href="contact.html?expert=maya" class="expert-contact">Request Consultation</a>
+        </div>
+        
+        <div class="expert-card">
+          <div class="expert-image" style="background-image: url('/api/placeholder/180/180')"></div>
+          <div class="expert-name">James Wilson</div>
+          <div class="expert-title">Labor Rights Advocate</div>
+          <p>Expert in wage disputes and collective action</p>
+          <a href="contact.html?expert=james" class="expert-contact">Request Consultation</a>
+        </div>
+        
+        <div class="expert-card">
+          <div class="expert-image" style="background-image: url('/api/placeholder/180/180')"></div>
+          <div class="expert-name">Dr. Sarah Chen</div>
+          <div class="expert-title">Workplace Safety Specialist</div>
+          <p>OSHA regulations and reporting procedures</p>
+          <a href="contact.html?expert=sarah" class="expert-contact">Request Consultation</a>
+        </div>
+        
+        <div class="expert-card">
+          <div class="expert-image" style="background-image: url('/api/placeholder/180/180')"></div>
+          <div class="expert-name">Robert Thompson</div>
+          <div class="expert-title">Mediation Specialist</div>
+          <p>Conflict resolution and negotiation tactics</p>
+          <a href="contact.html?expert=robert" class="expert-contact">Request Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Resources -->
+  <section class="dark-section">
+    <div class="container">
+      <h2>Educational Videos</h2>
+      <p>Watch our video series on understanding and addressing workplace issues:</p>
+      
+      <div class="videos-grid">
+        <div class="video-card">
+          <div class="video-thumbnail" style="background-image: url('/api/placeholder/300/180')">
+            <div class="play-icon"></div>
+          </div>
+          <div class="video-content">
+            <h3>Understanding Workplace Discrimination</h3>
+            <div class="video-meta">
+              <span>24 min</span>
+              <span>Presented by Maya Rodriguez</span>
+            </div>
+            <p>Learn how to recognize various forms of discrimination and the legal protections available to employees.</p>
+          </div>
+        </div>
+        
+        <div class="video-card">
+          <div class="video-thumbnail" style="background-image: url('/api/placeholder/300/180')">
+            <div class="play-icon"></div>
+          </div>
+          <div class="video-content">
+            <h3>Documenting Workplace Issues</h3>
+            <div class="video-meta">
+              <span>18 min</span>
+              <span>Presented by Robert Thompson</span>
+            </div>
+            <p>Step-by-step guide to properly documenting incidents, communications, and policies for potential legal action.</p>
+          </div>
+        </div>
+        
+        <div class="video-card">
+          <div class="video-thumbnail" style="background-image: url('/api/placeholder/300/180')">
+            <div class="play-icon"></div>
+          </div>
+          <div class="video-content">
+            <h3>How to Request Reasonable Accommodations</h3>
+            <div class="video-meta
