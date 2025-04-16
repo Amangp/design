@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success Stories | Law & Order Workplace Rights Advocates</title>
+  <style>
+    /* Base theme colors - black theme */
+    :root {
+      --bg-primary: #e5e5e0;
+      --bg-secondary: #1c1c1c;
+      --text-light: #e5e5e0;
+      --text-dark: #1c1c1c;
+      --accent: #333333;
+      --btn-primary: #1c1c1c;
+      --btn-hover: #333333;
+      --section-padding: 4rem 5%;
+    }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: var(--bg-primary);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    nav ul li {
+      margin: 0 1rem;
+    }
+    
+    nav ul li a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      color: #555;
+    }
+    
+    .free-consultation-btn {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+      font-weight: 600;
+    }
+    
+    .free-consultation-btn:hover {
+      background-color: #333;
+    }
+    
+    /* Page header */
+    .page-header {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 3rem 5%;
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      margin-top: 0;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .page-header p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    /* Category filters */
+    .filter-container {
+      margin: 2rem 0;
+      text-align: center;
+    }
+    
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--text-dark);
+      color: var(--text-dark);
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem 1rem 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+    
+    .filter-btn:hover, .filter-btn.active {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      border-color: var(--btn-primary);
+    }
+    
+    /* Featured story */
+    .featured-story {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    @media (min-width: 768px) {
+      .featured-story {
+        flex-direction: row;
+        align-items: stretch;
+      }
+    }
+    
+    .featured-image {
+      flex: 1;
+      min-height: 300px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .featured-content {
+      flex: 1;
+      padding: 2rem;
+    }
+    
+    .featured-content h2 {
+      margin-top: 0;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    
+    .featured-content p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .featured-badge {
+      display: inline-block;
+      background-color: #444;
+      color: var(--text-light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Success Stories Grid */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .story-card {
+      background: var(--bg-secondary);
+      border-radius: 4px;
+      overflow: hidden;
+      color: var(--text-light);
+      transition: transform 0.3s;
+    }
+    
+    .story-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .story-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .story-content {
+      padding: 1.5rem;
+    }
+    
+    .story-content h3 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .story-content p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .story-content a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+    }
+    
+    .story-content a:hover {
+      text-decoration: underline;
+    }
+    
+    .story-category {
+      display: inline-block;
+      background-color: #444;
+      color: var(--text-light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Testimonial section */
+    .testimonial-section {
+      background-color: #f0f0f0;
+      padding: var(--section-padding);
+      text-align: center;
+    }
+    
+    .testimonial-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .testimonial-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      color: #444;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #ccc;
+      margin-right: 1rem;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .author-info h4 {
+      margin: 0;
+      font-size: 1rem;
+    }
+    
+    .author-info p {
+      margin: 0;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background-color: var(--bg-primary);
+      text-align: center;
+      padding: var(--section-padding);
+    }
+    
+    .cta-buttons {
+      margin-top: 2rem;
+    }
+    
+    .cta-buttons .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      margin: 0 0.5rem 1rem 0.5rem;
+      text-transform: uppercase;
+    }
+    
+    .cta-buttons .primary {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+    }
+    
+    .cta-buttons .secondary {
+      border: 1px solid var(--text-dark);
+      color: var(--text-dark);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 3rem 5% 2rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-column h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-column a {
+      color: var(--text-light);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    
+    .footer-column a:hover {
+      opacity: 1;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    
+    .pagination-btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      margin: 0 0.3rem;
+      border: 1px solid #aaa;
+      color: var(--text-dark);
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    
+    .pagination-btn:hover, .pagination-btn.active {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      border-color: var(--btn-primary);
+    }
+    
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--bg-primary);
+      min-width: 200px;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-item {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: var(--text-dark);
+    }
+    
+    .dropdown-item:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      
+      nav ul {
+        display: none;
+      }
+      
+      .filter-btn {
+        margin-bottom: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with navigation -->
+  <header>
+    <div class="logo">
+      Law & Order
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Workplace Rights</a>
+          <div class="dropdown-content">
+            <a class="dropdown-item" href="discrimination.html">Workplace Discrimination</a>
+            <a class="dropdown-item" href="bureaucratic-challenges.html">Policy Challenges</a>
+            <a class="dropdown-item" href="labor-rights.html">Labor Rights & Wages</a>
+            <a class="dropdown-item" href="workplace-safety.html">Workplace Safety</a>
+          </div>
+        </li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="success-stories.html">Success Stories</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="free-consultation-btn">FREE CONSULTATION</a>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>Success Stories</h1>
+    <p>Real outcomes from our commitment to workplace justice. These cases demonstrate our dedication to employee rights and equitable workplaces.</p>
+  </section>
+
+  <!-- Main Content -->
+  <section class="main-content">
+    <div class="container">
+      <!-- Category Filters -->
+      <div class="filter-container">
+        <button class="filter-btn active">All Stories</button>
+        <button class="filter-btn">Discrimination</button>
+        <button class="filter-btn">Wages & Benefits</button>
+        <button class="filter-btn">Workplace Safety</button>
+        <button class="filter-btn">Policy Challenges</button>
+      </div>
+      
+      <!-- Featured Success Story -->
+      <div class="featured-story">
+        <div class="featured-image" style="background-image: url('/api/placeholder/600/400')">
+        </div>
+        <div class="featured-content">
+          <span class="featured-badge">Featured Case</span>
+          <h2>Class Action Victory for 200+ Essential Workers</h2>
+          <p>Our team secured a landmark $4.2 million settlement for essential workers who were denied proper hazard pay and safety equipment during the pandemic. The case established new precedents for worker protection during public health emergencies.</p>
+          <p>The settlement included back pay, damages, and mandatory policy changes to ensure proper protective equipment and compensation for high-risk conditions.</p>
+          <a href="stories/essential-workers.html">Read the Full Story →</a>
+        </div>
+      </div>
+      
+      <!-- Success Stories Grid -->
+      <div class="stories-grid">
+        <!-- Story 1 -->
+        <div class="story-card">
+          <div class="story-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="story-content">
+            <span class="story-category">Discrimination</span>
+            <h3>Caste Discrimination Resolution</h3>
+            <p>How we achieved justice for a tech employee facing systematic discrimination based on caste status, resulting in policy changes across the company.</p>
+            <a href="stories/caste-discrimination.html">Read More →</a>
+          </div>
+        </div>
+        
+        <!-- Story 2 -->
+        <div class="story-card">
+          <div class="story-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="story-content">
+            <span class="story-category">Wages & Benefits</span>
+            <h3>Wage Theft Recovery</h3>
+            <p>Securing $850,000 in back pay and damages for warehouse workers who were systematically underpaid for overtime hours.</p>
+            <a href="stories/wage-recovery.html">Read More →</a>
+          </div>
+        </div>
+        
+        <!-- Story 3 -->
+        <div class="story-card">
+          <div class="story-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="story-content">
+            <span class="story-category">Workplace Safety</span>
+            <h3>Safety Improvements Victory</h3>
+            <p>How factory workers secured critical fire safety measures and compensation after whistleblowing about dangerous working conditions.</p>
+            <a href="stories/safety-improvements.html">Read More →</a>
+          </div>
+        </div>
+        
+        <!-- Story 4 -->
+        <div class="story-card">
+          <div class="story-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="story-content">
+            <span class="story-category">Policy Challenges</span>
+            <h3>Forced Arbitration Reversal</h3>
+            <p>Successfully challenging an unfair arbitration clause that prevented employees from seeking justice through proper legal channels.</p>
+            <a href="stories/arbitration-reversal.html">Read More →</a>
+          </div>
+        </div>
+        
+        <!-- Story 5 -->
+        <div class="story-card">
+          <div class="story-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="story-content">
+            <span class="story-category">Discrimination</span>
+            <h3>Pregnancy Discrimination Case</h3>
+            <p>Helping a marketing executive regain her position and secure compensation after facing demotion following maternity leave.</p>
+            <a href="stories/pregnancy-discrimination.html">Read More →</a>
+          </div>
+        </div>
+        
+        <!-- Story 6 -->
+        <div class="story-card">
+          <div class="story-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="story-content">
+            <span class="story-category">Wages & Benefits</span>
+            <h3>Misclassification Correction</h3>
+            <p>Securing employee status and benefits for 75+ gig workers who were improperly classified as independent contractors.</p>
+            <a href="stories/misclassification.html">Read More →</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pagination -->
+      <div class="pagination">
+        <a href="#" class="pagination-btn active">1</a>
+        <a href="#" class="pagination-btn">2</a>
+        <a href="#" class="pagination-btn">3</a>
+        <a href="#" class="pagination-btn">Next →</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonial Section -->
+  <section class="testimonial-section">
+    <div class="testimonial-container">
+      <h2>Client Testimonials</h2>
+      <p>Hear directly from people who have worked with us to resolve workplace issues</p>
+      
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            "Law & Order fought for me when no one else would. They navigated the complex bureaucracy of my case with expertise and genuine care, helping me secure the justice I deserved after facing discrimination."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background-image: url('/api/placeholder/100/100')"></div>
+            <div class="author-info">
+              <h4>Priya M.</h4>
+              <p>Tech Industry Professional</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            "After being denied overtime pay for years, I didn't think I had any recourse. The team at Law & Order not only recovered my back wages but helped change company policy to protect future employees."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background-image: url('/api/placeholder/100/100')"></div>
+            <div class="author-info">
+              <h4>Marcus J.</h4>
+              <p>Warehouse Worker</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            "The workplace safety violations at our factory had been ignored for years. Law & Order helped us document everything properly and navigate the complex reporting process. They stayed with us every step of the way."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background-image: url('/api/placeholder/100/100')"></div>
+            <div class="author-info">
+              <h4>Elena R.</h4>
+              <p>Manufacturing Worker</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Your Workplace Rights Matter</h2>
+      <p>Let us help you stand up for fair treatment and justice in your workplace</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn primary">FREE CONSULTATION</a>
+        <a href="resources.html" class="btn secondary">EXPLORE RESOURCES</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <p>+1 (000) 123-4567</p>
+        <p>rights@lawandorder.com</p>
+        <p>123 Legal Street, Justice City</p>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Workplace Issues</h3>
+        <ul>
+          <li><a href="discrimination.html">Workplace Discrimination</a></li>
+          <li><a href="bureaucratic-challenges.html">Policy Challenges</a></li>
+          <li><a href="labor-rights.html">Labor Rights & Wages</a></li>
+          <li><a href="workplace-safety.html">Workplace Safety</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="resources/documentation.html">Documentation Tools</a></li>
+          <li><a href="resources/guides.html">Self-Advocacy Guides</a></li>
+          <li><a href="resources/templates.html">Complaint Templates</a></li>
+          <li><a href="resources/videos.html">Educational Videos</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>About Us</h3>
+        <ul>
+          <li><a href="about.html">Our Mission</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="success-stories.html">Success Stories</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>© 2025 Law & Order. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Basic filter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterBtns.forEach(b => b.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // In a real implementation, this would filter the stories
+          // For this prototype, we're just changing the button state
+        });
+      });
+    });
+  </script>
+</body>
+</html>
