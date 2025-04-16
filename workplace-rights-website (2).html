@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Law & Order | Workplace Rights Advocates</title>
+  <style>
+    /* Base theme colors - black theme */
+    :root {
+      --bg-primary: #e5e5e0;
+      --bg-secondary: #1c1c1c;
+      --text-light: #e5e5e0;
+      --text-dark: #1c1c1c;
+      --accent: #333333;
+      --btn-primary: #1c1c1c;
+      --btn-hover: #333333;
+      --section-padding: 4rem 5%;
+    }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: var(--bg-primary);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    nav ul li {
+      margin: 0 1rem;
+    }
+    
+    nav ul li a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      color: #555;
+    }
+    
+    .free-consultation-btn {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+      font-weight: 600;
+    }
+    
+    .free-consultation-btn:hover {
+      background-color: #333;
+    }
+    
+    /* Hero section */
+    .hero {
+      background-color: var(--bg-primary);
+      padding: var(--section-padding);
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+    
+    .hero-content {
+      max-width: 700px;
+    }
+    
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-dark);
+    }
+    
+    .hero p {
+      margin-top: 0;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #333;
+      max-width: 600px;
+    }
+    
+    .hero-cta .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .hero-cta .primary {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      margin-right: 1rem;
+    }
+    
+    .hero-cta .primary:hover {
+      background-color: #333;
+    }
+    
+    .hero-cta .secondary {
+      border: 1px solid var(--text-dark);
+      color: var(--text-dark);
+      background-color: transparent;
+    }
+    
+    .hero-cta .secondary:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+    
+    .hero-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .hero-image {
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Section styling */
+    section {
+      padding: var(--section-padding);
+    }
+    
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    /* Dark section */
+    .dark-section {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      text-align: center;
+    }
+    
+    .dark-section p {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    .stats-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    
+    .stat-item {
+      width: 23%;
+      min-width: 200px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    
+    /* Issues navigation - cleaner cards */
+    .issues-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .issue-card {
+      background: var(--bg-secondary);
+      color: var(--text-light);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.3s;
+      padding: 1.5rem;
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    .issue-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .issue-card h3 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .issue-card p {
+      margin-bottom: 0;
+    }
+    
+    /* Assessment tool */
+    .assessment-section {
+      background-color: #f0f0f0;
+    }
+    
+    .assessment-intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .assessment-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .chatbot-container {
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      padding: 20px;
+      color: var(--text-light);
+    }
+    
+    .chatbot-message {
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      background: #333;
+    }
+    
+    .chatbot-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .chatbot-option {
+      background: #444;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .chatbot-option:hover {
+      background: #555;
+    }
+    
+    /* Success stories */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .story-card {
+      background: var(--bg-secondary);
+      border-radius: 4px;
+      overflow: hidden;
+      color: var(--text-light);
+      transition: transform 0.3s;
+    }
+    
+    .story-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .story-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .story-content {
+      padding: 1.5rem;
+    }
+    
+    .story-content h4 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .story-content a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+    
+    .story-content a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Steps section */
+    .steps-container {
+      max-width: 800px;
+      margin: 40px auto 0;
+    }
+    
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+    }
+    
+    .step-number {
+      flex: 0 0 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-right: 1.5rem;
+    }
+    
+    .step-content h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background-color: var(--bg-primary);
+      text-align: center;
+    }
+    
+    .cta-buttons {
+      margin-top: 2rem;
+    }
+    
+    .cta-buttons .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      margin: 0 0.5rem 1rem 0.5rem;
+      text-transform: uppercase;
+    }
+    
+    .cta-buttons .primary {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+    }
+    
+    .cta-buttons .secondary {
+      border: 1px solid var(--text-dark);
+      color: var(--text-dark);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 3rem 5% 2rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-column h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-column a {
+      color: var(--text-light);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    
+    .footer-column a:hover {
+      opacity: 1;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--bg-primary);
+      min-width: 200px;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-item {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: var(--text-dark);
+    }
+    
+    .dropdown-item:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      nav ul {
+        display: none;
+      }
+      
+      .hero-cta .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      
+      .stats-bar {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .stat-item {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with improved navigation -->
+  <header>
+    <div class="logo">
+      Law & Order
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Workplace Rights</a>
+          <div class="dropdown-content">
+            <a class="dropdown-item" href="discrimination.html">Workplace Discrimination</a>
+            <a class="dropdown-item" href="bureaucratic-challenges.html">Policy Challenges</a>
+            <a class="dropdown-item" href="labor-rights.html">Labor Rights & Wages</a>
+            <a class="dropdown-item" href="workplace-safety.html">Workplace Safety</a>
+          </div>
+        </li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="success-stories.html">Success Stories</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="free-consultation-btn">FREE CONSULTATION</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Standing Up For Your Workplace Rights</h1>
+      <p>We help employees understand their rights, fight against discrimination, and ensure fair treatment in all workplace matters.</p>
+      <div class="hero-cta">
+        <a href="#assessment" class="btn primary">ASSESS YOUR SITUATION</a>
+        <a href="resources.html" class="btn secondary">EXPLORE RESOURCES</a>
+      </div>
+    </div>
+    
+    <div class="hero-images">
+      <div class="hero-image">
+        <img src="/api/placeholder/380/250" alt="Employee consultation">
+      </div>
+      <div class="hero-image">
+        <img src="/api/placeholder/380/250" alt="Workplace rights information">
+      </div>
+      <div class="hero-image">
+        <img src="/api/placeholder/380/250" alt="Employee advocate">
+      </div>
+    </div>
+  </section>
+
+  <!-- Dark section with mission statement -->
+  <section class="dark-section">
+    <div class="container">
+      <h2>Dedicated Advocates For Employee Rights</h2>
+      <p>Our team specializes in protecting employees from discrimination, harassment, wage theft, unsafe conditions, and unfair workplace policies. We're committed to creating equitable work environments.</p>
+      
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-number">01</div>
+          <div class="stat-label">Expert Advocacy</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">02</div>
+          <div class="stat-label">Employee-Focused</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">03</div>
+          <div class="stat-label">Proven Results</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">04</div>
+          <div class="stat-label">Continuous Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workplace Issues Section -->
+  <section>
+    <div class="container">
+      <h2>Explore Workplace Issues</h2>
+      <p>Find resources and solutions for these common workplace challenges:</p>
+      
+      <div class="issues-grid">
+        <div class="issue-card" onclick="location.href='discrimination.html'">
+          <h3>Workplace Discrimination</h3>
+          <p>Combat harassment & ensure equal opportunity</p>
+        </div>
+        
+        <div class="issue-card" onclick="location.href='bureaucratic-challenges.html'">
+          <h3>Policy Challenges</h3>
+          <p>Navigate unfair workplace policies & bureaucratic obstacles</p>
+        </div>
+        
+        <div class="issue-card" onclick="location.href='labor-rights.html'">
+          <h3>Labor Rights & Wages</h3>
+          <p>Fair pay, proper working conditions & job security</p>
+        </div>
+        
+        <div class="issue-card" onclick="location.href='workplace-safety.html'">
+          <h3>Workplace Safety</h3>
+          <p>Ensure compliance & prevent safety hazards</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Assessment Tool -->
+  <section id="assessment" class="assessment-section">
+    <div class="container">
+      <div class="assessment-intro">
+        <h2>Interactive Rights Assessment</h2>
+        <p>Answer a few questions to understand your situation and explore available resources</p>
+      </div>
+      
+      <div class="assessment-container">
+        <div class="chatbot-container">
+          <div class="chatbot-message">
+            <p>Hello! I'm here to help identify workplace issues you may be facing. What best describes your situation?</p>
+            <div class="chatbot-options">
+              <button class="chatbot-option">Discrimination/Harassment</button>
+              <button class="chatbot-option">Unfair Policies</button>
+              <button class="chatbot-option">Wage or Hours Issues</button>
+              <button class="chatbot-option">Safety Concerns</button>
+              <button class="chatbot-option">Not Sure</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Stories Section -->
+  <section>
+    <div class="container">
+      <h2>Recent Success Stories</h2>
+      <p>Real examples of workplace issues that were successfully addressed:</p>
+      
+      <div class="stories-grid">
+        <div class="story-card">
+          <div class="story-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="story-content">
+            <h4>Caste Discrimination Resolution</h4>
+            <p>How we achieved justice for a tech employee facing systematic discrimination</p>
+            <a href="stories/caste-discrimination.html">Read More →</a>
+          </div>
+        </div>
+        
+        <div class="story-card">
+          <div class="story-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="story-content">
+            <h4>Wage Theft Recovery</h4>
+            <p>Securing back pay and damages for warehouse workers</p>
+            <a href="stories/wage-recovery.html">Read More →</a>
+          </div>
+        </div>
+        
+        <div class="story-card">
+          <div class="story-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="story-content">
+            <h4>Workplace Safety Improvement</h4>
+            <p>How factory workers secured critical fire safety measures</p>
+            <a href="stories/safety-improvements.html">Read More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps Section -->
+  <section>
+    <div class="container">
+      <h2>How to Address Workplace Issues</h2>
+      <p>Follow these steps to effectively address workplace challenges:</p>
+      
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Document Everything</h3>
+            <p>Keep detailed records of incidents, communications, and policies related to your issue. Note dates, times, locations, and involved parties.</p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Know Your Rights</h3>
+            <p>Research applicable laws and company policies that protect you. Understanding your rights is critical to advocating for yourself.</p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Seek Support</h3>
+            <p>Connect with colleagues, support groups, or workplace advocates who can provide guidance and solidarity.</p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Take Action</h3>
+            <p>File formal complaints, request mediation, or seek external assistance as appropriate for your situation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Stand Up for Your Rights?</h2>
+      <p>Get the support you need to address workplace issues</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn primary">FREE CONSULTATION</a>
+        <a href="resources.html" class="btn secondary">EXPLORE RESOURCES</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <p>+1 (000) 123-4567</p>
+        <p>rights@lawandorder.com</p>
+        <p>123 Legal Street, Justice City</p>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Workplace Issues</h3>
+        <ul>
+          <li><a href="discrimination.html">Workplace Discrimination</a></li>
+          <li><a href="bureaucratic-challenges.html">Policy Challenges</a></li>
+          <li><a href="labor-rights.html">Labor Rights & Wages</a></li>
+          <li><a href="workplace-safety.html">Workplace Safety</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="resources/documentation.html">Documentation Tools</a></li>
+          <li><a href="resources/guides.html">Self-Advocacy Guides</a></li>
+          <li><a href="resources/templates.html">Complaint Templates</a></li>
+          <li><a href="resources/videos.html">Educational Videos</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>About Us</h3>
+        <ul>
+          <li><a href="about.html">Our Mission</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="success-stories.html">Success Stories</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>© 2025 Law & Order. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Basic chatbot functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const chatOptions = document.querySelectorAll('.chatbot-option');
+      const chatbotContainer = document.querySelector('.chatbot-container');
+      
+      chatOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          const userSelection = this.textContent;
+          
+          // Add user selection as a new message
+          const userMessage = document.createElement('div');
+          userMessage.className = 'chatbot-message';
+          userMessage.innerHTML = `<p><strong>You selected:</strong> ${userSelection}</p>`;
+          chatbotContainer.appendChild(userMessage);
+          
+          // Simulate bot response
+          setTimeout(() => {
+            const botResponse = document.createElement('div');
+            botResponse.className = 'chatbot-message';
+            
+            // Simple response logic based on selection
+            if (userSelection.includes('Discrimination')) {
+              botResponse.innerHTML = `
+                <p>I understand you're facing discrimination or harassment. Here are some options:</p>
+                <div class="chatbot-options">
+                  <button class="chatbot-option">Learn about documentation strategies</button>
+                  <button class="chatbot-option">Explore discrimination resources</button>
+                  <button class="chatbot-option">Request a consultation</button>
+                </div>
+              `;
+            } else if (userSelection.includes('Unfair Policies')) {
+              botResponse.innerHTML = `
+                <p>Dealing with unfair policies can be challenging. How would you like to proceed?</p>
+                <div class="chatbot-options">
+                  <button class="chatbot-option">View policy challenge resources</button>
+                  <button class="chatbot-option">Read about similar cases</button>
+                  <button class="chatbot-option">Request assistance</button>
+                </div>
+              `;
+            } else if (userSelection.includes('Wage')) {
+              botResponse.innerHTML = `
+                <p>Labor rights and wage issues are serious concerns. Here's how we can help:</p>
+                <div class="chatbot-options">
+                  <button class="chatbot-option">Learn about wage rights</button>
+                  <button class="chatbot-option">View documentation templates</button>
+                  <button class="chatbot-option">Request a consultation</button>
+                </div>
+              `;
+            } else if (userSelection.includes('Safety')) {
+              botResponse.innerHTML = `
+                <p>Workplace safety is critical. Here are some resources:</p>
+                <div class="chatbot-options">
+                  <button class="chatbot-option">Safety reporting guidelines</button>
+                  <button class="chatbot-option">Read about safety rights</button>
+                  <button class="chatbot-option">Get immediate assistance</button>
+                </div>
+              `;
+            } else {
+              botResponse.innerHTML = `
+                <p>Let's figure out what you're facing. Which of these is closest to your concern?</p>
+                <div class="chatbot-options">
+                  <button class="chatbot-option">Unfair treatment</button>
+                  <button class="chatbot-option">Work environment issues</button>
+                  <button class="chatbot-option">Talk to an advocate</button>
+                </div>
+              `;
+            }
+            
+            chatbotContainer.appendChild(botResponse);
+            
+            // Add event listeners to new options
+            const newOptions = botResponse.querySelectorAll('.chatbot-option');
+            newOptions.forEach(option => {
+              option.addEventListener('click', function() {
+                const finalMessage = document.createElement('div');
+                finalMessage.className = 'chatbot-message';
+                finalMessage.innerHTML = `
+                  <p>Thank you for sharing more details. We have resources that can help.</p>
+                  <p>For personalized assistance, we recommend scheduling a free consultation with one of our workplace rights advocates.</p>
+                  <p><a href="contact.html" style="color: white; text-decoration: underline;">Schedule a consultation</a> or <a href="resources.html" style="color: white; text-decoration: underline;">explore our resources</a>.</p>
+                `;
+                chatbotContainer.appendChild(finalMessage);
+              });
+            });
+          }, 800);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
