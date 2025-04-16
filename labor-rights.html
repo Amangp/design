@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Labor Rights & Wages | Law & Order Workplace Rights Advocates</title>
+  <style>
+    /* Base theme colors - black theme */
+    :root {
+      --bg-primary: #e5e5e0;
+      --bg-secondary: #1c1c1c;
+      --text-light: #e5e5e0;
+      --text-dark: #1c1c1c;
+      --accent: #333333;
+      --btn-primary: #1c1c1c;
+      --btn-hover: #333333;
+      --section-padding: 4rem 5%;
+    }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: var(--bg-primary);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    nav ul li {
+      margin: 0 1rem;
+    }
+    
+    nav ul li a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      color: #555;
+    }
+    
+    .free-consultation-btn {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+      font-weight: 600;
+    }
+    
+    .free-consultation-btn:hover {
+      background-color: #333;
+    }
+    
+    /* Page header */
+    .page-header {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 4rem 5%;
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin: 0 0 1rem;
+      font-weight: 700;
+    }
+    
+    .page-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Section styling */
+    section {
+      padding: var(--section-padding);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    section h3 {
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem;
+    }
+    
+    /* Two column layout */
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .column-content {
+      padding: 1rem 0;
+    }
+    
+    .column-image img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    /* Rights cards */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .right-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      transition: transform 0.3s;
+    }
+    
+    .right-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .right-card h3 {
+      margin-top: 0;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* Wage theft section */
+    .wage-theft-section {
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .wage-theft-types {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .theft-type {
+      background-color: white;
+      border-radius: 8px;
+      padding: 1.25rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .theft-type h4 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    /* Timeline */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 3rem auto 2rem;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: var(--bg-secondary);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      border: 4px solid var(--bg-secondary);
+      border-radius: 50%;
+      top: 15px;
+      z-index: 1;
+    }
+    
+    .left {
+      left: 0;
+    }
+    
+    .right {
+      left: 50%;
+    }
+    
+    .left::after {
+      right: -10px;
+    }
+    
+    .right::after {
+      left: -10px;
+    }
+    
+    .timeline-content {
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    
+    .timeline-content h4 {
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+    
+    /* Calculator widget */
+    .calculator-widget {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 600px;
+    }
+    
+    .calculator-widget h3 {
+      text-align: center;
+      margin-top: 0;
+    }
+    
+    .calculator-form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    
+    .calculate-btn {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 1rem;
+      width: 100%;
+    }
+    
+    .result-box {
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      display: none;
+    }
+    
+    /* Resource cards */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .resource-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: white;
+    }
+    
+    .resource-image {
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .resource-content {
+      padding: 1.5rem;
+    }
+    
+    .resource-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+    }
+    
+    .resource-content p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .resource-link {
+      display: inline-block;
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Success Stories */
+    .stories-section {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+    }
+    
+    .story-slider {
+      margin: 2rem 0;
+      overflow: hidden;
+    }
+    
+    .story-slide {
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 1rem 0;
+    }
+    
+    .story-content {
+      font-style: italic;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .story-author {
+      font-weight: 600;
+    }
+    
+    .story-position {
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+    
+    /* FAQ Section */
+    .faq-container {
+      max-width: 800px;
+      margin: 2rem auto 0;
+    }
+    
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+      padding: 1.5rem 0;
+    }
+    
+    .faq-question {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      cursor: pointer;
+    }
+    
+    .faq-answer {
+      margin-top: 0.75rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background-color: var(--bg-primary);
+      text-align: center;
+    }
+    
+    .cta-buttons {
+      margin-top: 2rem;
+    }
+    
+    .cta-buttons .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      margin: 0 0.5rem 1rem 0.5rem;
+      text-transform: uppercase;
+    }
+    
+    .cta-buttons .primary {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+    }
+    
+    .cta-buttons .secondary {
+      border: 1px solid var(--text-dark);
+      color: var(--text-dark);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 3rem 5% 2rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-column h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-column a {
+      color: var(--text-light);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    
+    .footer-column a:hover {
+      opacity: 1;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--bg-primary);
+      min-width: 200px;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-item {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: var(--text-dark);
+    }
+    
+    .dropdown-item:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+      
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-item::after {
+        left: 21px;
+      }
+      
+      .left::after, .right::after {
+        left: 21px;
+      }
+      
+      .right {
+        left: 0%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with improved navigation -->
+  <header>
+    <div class="logo">
+      Law & Order
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Workplace Rights</a>
+          <div class="dropdown-content">
+            <a class="dropdown-item" href="discrimination.html">Workplace Discrimination</a>
+            <a class="dropdown-item" href="bureaucratic-challenges.html">Policy Challenges</a>
+            <a class="dropdown-item" href="labor-rights.html">Labor Rights & Wages</a>
+            <a class="dropdown-item" href="workplace-safety.html">Workplace Safety</a>
+          </div>
+        </li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="success-stories.html">Success Stories</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="free-consultation-btn">FREE CONSULTATION</a>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Labor Rights & Fair Wages</h1>
+    <p>Understanding your rights to fair compensation, proper classification, reasonable hours, and safe working conditions</p>
+  </div>
+
+  <!-- Introduction Section -->
+  <section>
+    <div class="container">
+      <div class="two-column">
+        <div class="column-content">
+          <h2>Know Your Labor Rights</h2>
+          <p>Every worker deserves fair treatment and compensation for their labor. Unfortunately, wage theft, misclassification, and violations of labor laws remain widespread problems affecting millions of workers across industries.</p>
+          
+          <p>At Law & Order Workplace Rights Advocates, we help employees understand their labor rights, identify violations, and take effective action to recover unpaid wages and secure proper working conditions.</p>
+          
+          <p>Whether you're dealing with unpaid overtime, minimum wage violations, or misclassification as an independent contractor, our resources and expertise can help you navigate these complex issues.</p>
+        </div>
+        
+        <div class="column-image">
+          <img src="/api/placeholder/500/350" alt="Workers discussing labor rights">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Rights Section -->
+  <section>
+    <div class="container">
+      <h2>Your Essential Labor Rights</h2>
+      <p>Federal and state laws provide important protections for workers. Understanding these rights is the first step to ensuring fair treatment:</p>
+      
+      <div class="rights-grid">
+        <div class="right-card">
+          <h3>Minimum Wage</h3>
+          <p>You are entitled to receive at least the federal minimum wage ($15.50/hour as of 2025) or your state's minimum wage, whichever is higher. Some localities have established their own higher minimum wages.</p>
+          <p>This applies to most workers, regardless of whether you are paid hourly, by salary, or by piece rate.</p>
+        </div>
+        
+        <div class="right-card">
+          <h3>Overtime Pay</h3>
+          <p>Non-exempt employees must receive overtime pay of at least 1.5 times their regular rate for all hours worked beyond 40 in a workweek.</p>
+          <p>Some states provide additional overtime protections, such as daily overtime for work beyond 8 hours in a day.</p>
+        </div>
+        
+        <div class="right-card">
+          <h3>Proper Classification</h3>
+          <p>Workers must be properly classified as either employees or independent contractors. This classification affects tax withholding, benefits eligibility, and workplace protections.</p>
+          <p>Misclassification often deprives workers of overtime pay, unemployment insurance, and other benefits.</p>
+        </div>
+        
+        <div class="right-card">
+          <h3>Break & Meal Periods</h3>
+          <p>While federal law doesn't require break periods, many states mandate rest breaks and/or meal periods. When provided, short breaks (5-20 minutes) must generally be paid.</p>
+          <p>Meal breaks (typically 30+ minutes) may be unpaid if employees are completely relieved of duties.</p>
+        </div>
+        
+        <div class="right-card">
+          <h3>Timely Payment</h3>
+          <p>You have the right to receive your wages on regular paydays. Most states have laws specifying maximum intervals between paydays and final paycheck requirements.</p>
+          <p>Unauthorized deductions from your wages are generally prohibited.</p>
+        </div>
+        
+        <div class="right-card">
+          <h3>Equal Pay</h3>
+          <p>The Equal Pay Act and other laws prohibit wage discrimination based on sex for substantially equal work requiring equal skill, effort, and responsibility.</p>
+          <p>Some states have expanded equal pay protections to cover additional protected characteristics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wage Theft Section -->
+  <section>
+    <div class="container">
+      <h2>Recognizing Wage Theft</h2>
+      <p>Wage theft occurs when employers fail to pay workers the full wages they've legally earned. This common workplace violation takes many forms:</p>
+      
+      <div class="wage-theft-section">
+        <h3>Common Types of Wage Theft</h3>
+        
+        <div class="wage-theft-types">
+          <div class="theft-type">
+            <h4>Unpaid Overtime</h4>
+            <p>Not paying for work over 40 hours per week, or misclassifying workers as "exempt" to avoid overtime requirements.</p>
+          </div>
+          
+          <div class="theft-type">
+            <h4>Off-the-Clock Work</h4>
+            <p>Requiring work before/after shifts, during breaks, or from home without compensation.</p>
+          </div>
+          
+          <div class="theft-type">
+            <h4>Minimum Wage Violations</h4>
+            <p>Paying less than the legal minimum wage, including for tipped workers when tips don't reach minimum wage.</p>
+          </div>
+          
+          <div class="theft-type">
+            <h4>Illegal Deductions</h4>
+            <p>Taking unauthorized deductions that drop pay below minimum wage or withholding final paychecks.</p>
+          </div>
+          
+          <div class="theft-type">
+            <h4>Misclassification</h4>
+            <p>Improperly classifying employees as independent contractors to avoid paying benefits and overtime.</p>
+          </div>
+          
+          <div class="theft-type">
+            <h4>Tip Theft</h4>
+            <p>Managers or employers taking a portion of tips, or inappropriate tip pooling arrangements.</p>
+          </div>
+        </div>
+      </div>
+      
+      <p><strong>Red flags to watch for:</strong> Rounded time records, unpaid training or meetings, "off-the-clock" requests, payments made in cash without records, or being told "that's just how the industry works."</p>
+    </div>
+  </section>
+
+  <!-- Taking Action Timeline -->
+  <section>
+    <div class="container">
+      <h2>How to Address Wage & Labor Violations</h2>
+      <p>If you believe your labor rights have been violated, follow these steps:</p>
+      
+      <div class="timeline">
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <h4>Document Everything</h4>
+            <p>Keep detailed records of your hours worked, pay stubs, any communications about wages, and any instances of suspected violations.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <h4>Calculate Unpaid Wages</h4>
+            <p>Determine how much you are owed by calculating your correct wages and comparing to what you received. Use our calculator below for assistance.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <h4>Address With Employer</h4>
+            <p>Consider raising the issue with your supervisor, HR department, or payroll. Make your request in writing and keep copies of all communications.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <h4>File a Complaint</h4>
+            <p>If direct resolution fails, file a wage claim with your state labor agency or the U.S. Department of Labor's Wage and Hour Division.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <h4>Consult With an Advocate</h4>
+            <p>Workplace rights advocates can help evaluate your case, navigate the complaint process, and discuss potential legal action if necessary.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator Widget -->
+  <section>
+    <div class="container">
+      <div class="calculator-widget">
+        <h3>Unpaid Wages Calculator</h3>
+        <p>Estimate potential unpaid wages with this simple calculator:</p>
+        
+        <div class="calculator-form">
+          <div class="form-group">
+            <label for="hours-worked">Average Hours Worked Per Week:</label>
+            <input type="number" id="hours-worked" min="1" max="168" placeholder="e.g. 45">
+          </div>
+          
+          <div class="form-group">
+            <label for="hourly-rate">Hourly Rate:</label>
+            <input type="number" id="hourly-rate" min="0" step="0.01" placeholder="e.g. 18.50">
+          </div>
+          
+          <div class="form-group">
+            <label for="weeks-affected">Number of Weeks Affected:</label>
+            <input type="number" id="weeks-affected" min="1" placeholder="e.g. 12">
+          </div>
+          
+          <button class="calculate-btn" id="calculate-wages">Calculate Potential Unpaid Wages</button>
+          
+          <div class="result-box" id="result-container">
+            <p><strong>Estimated Regular Pay:</strong> $<span id="regular-pay">0.00</span></p>
+            <p><strong>Estimated Overtime Pay:</strong> $<span id="overtime-pay">0.00</span></p>
+            <p><strong>Total Estimated Unpaid Wages:</strong> $<span id="total-unpaid">0.00</span></p>
+            <p class="note">Note: This calculator provides an estimate only. Actual unpaid wages may vary based on specific circumstances and applicable laws.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section>
+    <div class="container">
+      <h2>Labor Rights Resources</h2>
+      <p>Essential tools and information to help you understand and assert your labor rights:</p>
+      
+      <div class="resources-grid">
+        <div class="resource-card">
+          <div class="resource-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="resource-content">
+            <h4>Wage & Hour Documentation Kit</h4>
+            <p>Templates and tools to track your hours, calculate overtime, and document wage violations.</p>
+            <a href="resources/wage-documentation.html" class="resource-link">ACCESS TOOLS</a>
+          </div>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="resource-content">
+            <h4>Wage Complaint Templates</h4>
+            <p>Pre-written templates for addressing wage issues with employers and filing agency complaints.</p>
+            <a href="resources/wage-complaint-templates.html" class="resource-link">VIEW TEMPLATES</a>
+          </div>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="resource-content">
+            <h4>Worker Classification Guide</h4>
+            <p>Understand the difference between employees and independent contractors, and your rights in each case.</p>
+            <a href="resources/classification-guide.html" class="resource-link">READ GUIDE</a>
+          </div>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="resource-content">
+            <h4>State-by-State Rights Guide</h4>
+            <p>Detailed information on minimum wage, overtime, and break requirements in your state.</p>
+            <a href="resources/state-labor-laws.html" class="resource-link">FIND YOUR STATE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Stories -->
+  <section class="stories-section">
+    <div class="container">
+      <h2>Wage Recovery Success Stories</h2>
+      <p>Real examples of workers who successfully recovered their unpaid wages:</p>
+      
+      <div class="story-slider">
+        <div class="story-slide">
+          <div class="story-content">
+            "After discovering I was misclassified as an independent contractor for two years, I used the documentation tools from this site to build my case. With proper guidance, I was able to recover over $14,000 in unpaid overtime and benefits. The step-by-step approach made a complex process manageable."
+          </div>
+          <div class="story-author">Miguel R.</div>
+          <div class="story-position">IT Support Specialist</div>
+        </div>
+        
+        <div class="story-slide">
+          <div class="story-content">
+            "My employer regularly asked us to work through lunch breaks but wouldn't pay us for that time. Using the wage theft calculator and complaint templates, I helped organize my coworkers to address the issue collectively. We recovered nearly $40,000 in unpaid wages for our team of 12 warehouse employees."
+          </div>
+          <div class="story-author">Janelle T.</div>
+          <div class="story-position">Warehouse Lead</div>
+        </div>
+        
+        <div class="story-slide">
+          <div class="story-content">
+            "As a tipped employee, I didn't realize my employer was illegally taking a portion of our tips. After consulting with a workplace advocate, I learned this practice violated labor laws. With proper documentation and agency support, not only di
