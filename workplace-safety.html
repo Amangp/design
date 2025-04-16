@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workplace Safety | Law & Order</title>
+  <style>
+    /* Base theme colors - black theme */
+    :root {
+      --bg-primary: #e5e5e0;
+      --bg-secondary: #1c1c1c;
+      --text-light: #e5e5e0;
+      --text-dark: #1c1c1c;
+      --accent: #333333;
+      --btn-primary: #1c1c1c;
+      --btn-hover: #333333;
+      --section-padding: 4rem 5%;
+    }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: var(--bg-primary);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    nav ul li {
+      margin: 0 1rem;
+    }
+    
+    nav ul li a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      color: #555;
+    }
+    
+    .free-consultation-btn {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+      font-weight: 600;
+    }
+    
+    .free-consultation-btn:hover {
+      background-color: #333;
+    }
+    
+    /* Page header section */
+    .page-header {
+      background-color: var(--bg-secondary);
+      padding: var(--section-padding);
+      color: var(--text-light);
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .page-header p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    /* Section styling */
+    section {
+      padding: var(--section-padding);
+    }
+    
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Safety risks grid */
+    .risks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .risk-card {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      border-radius: 4px;
+      overflow: hidden;
+      padding: 1.5rem;
+      transition: transform 0.3s;
+    }
+    
+    .risk-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .risk-card h3 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .risk-card ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+    
+    .risk-card li {
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Steps section */
+    .steps-container {
+      max-width: 800px;
+      margin: 40px auto 0;
+    }
+    
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+    }
+    
+    .step-number {
+      flex: 0 0 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-right: 1.5rem;
+    }
+    
+    .step-content h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    /* Rights section styling */
+    .dark-section {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+    }
+    
+    .rights-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .right-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 4px;
+    }
+    
+    .right-item h3 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* FAQ section */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding-bottom: 1.5rem;
+    }
+    
+    .faq-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Resources section */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .resource-card {
+      background-color: #f5f5f5;
+      padding: 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .resource-card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .resource-card ul {
+      padding-left: 1.2rem;
+      margin-bottom: 0;
+    }
+    
+    .resource-card li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .resource-card a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .resource-card a:hover {
+      text-decoration: underline;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background-color: var(--bg-primary);
+      text-align: center;
+    }
+    
+    .cta-buttons {
+      margin-top: 2rem;
+    }
+    
+    .cta-buttons .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      margin: 0 0.5rem 1rem 0.5rem;
+      text-transform: uppercase;
+    }
+    
+    .cta-buttons .primary {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+    }
+    
+    .cta-buttons .secondary {
+      border: 1px solid var(--text-dark);
+      color: var(--text-dark);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 3rem 5% 2rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-column h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-column a {
+      color: var(--text-light);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    
+    .footer-column a:hover {
+      opacity: 1;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--bg-primary);
+      min-width: 200px;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-item {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: var(--text-dark);
+    }
+    
+    .dropdown-item:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      
+      nav ul {
+        display: none;
+      }
+      
+      .cta-buttons .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      
+      .risks-grid,
+      .rights-list,
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with navigation -->
+  <header>
+    <div class="logo">
+      Law & Order
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Workplace Rights</a>
+          <div class="dropdown-content">
+            <a class="dropdown-item" href="discrimination.html">Workplace Discrimination</a>
+            <a class="dropdown-item" href="bureaucratic-challenges.html">Policy Challenges</a>
+            <a class="dropdown-item" href="labor-rights.html">Labor Rights & Wages</a>
+            <a class="dropdown-item" href="workplace-safety.html">Workplace Safety</a>
+          </div>
+        </li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="success-stories.html">Success Stories</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="free-consultation-btn">FREE CONSULTATION</a>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>Workplace Safety</h1>
+    <p>Every employee deserves to work in an environment free from unnecessary hazards and safety risks. Learn about workplace safety rights, how to identify concerns, and steps to take if your health or safety are at risk.</p>
+  </section>
+
+  <!-- Common Safety Risks -->
+  <section>
+    <div class="container">
+      <h2>Common Workplace Safety Concerns</h2>
+      <p>Safety issues can arise in any workplace. Recognizing these concerns is the first step in addressing them:</p>
+      
+      <div class="risks-grid">
+        <div class="risk-card">
+          <h3>Physical Hazards</h3>
+          <ul>
+            <li>Inadequate protective equipment or training</li>
+            <li>Unsafe machinery or tools</li>
+            <li>Trip, slip, and fall hazards</li>
+            <li>Electrical safety issues</li>
+            <li>Improper storage of dangerous materials</li>
+            <li>Blocked emergency exits</li>
+          </ul>
+        </div>
+        
+        <div class="risk-card">
+          <h3>Health & Environmental Concerns</h3>
+          <ul>
+            <li>Exposure to toxic chemicals</li>
+            <li>Poor air quality or ventilation</li>
+            <li>Excessive noise levels</li>
+            <li>Ergonomic issues</li>
+            <li>Biological hazards</li>
+            <li>Temperature extremes</li>
+          </ul>
+        </div>
+        
+        <div class="risk-card">
+          <h3>Process & Management Issues</h3>
+          <ul>
+            <li>Inadequate safety training programs</li>
+            <li>Pressure to bypass safety protocols</li>
+            <li>Lack of regular safety inspections</li>
+            <li>Insufficient breaks or rest periods</li>
+            <li>Ignoring reported safety concerns</li>
+            <li>Retaliation for reporting safety issues</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps to Address Safety Concerns -->
+  <section>
+    <div class="container">
+      <h2>How to Address Workplace Safety Concerns</h2>
+      <p>If you identify a safety issue in your workplace, take these steps to properly document and report it:</p>
+      
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Document the Issue</h3>
+            <p>Take notes about the safety hazard, including its location, how long it has existed, and any incidents that have occurred. If possible and safe to do so, take photos or videos as evidence.</p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Report Internally</h3>
+            <p>Follow your company's safety reporting procedures. Report the issue to your supervisor, safety committee, or human resources department. Keep copies of all communications and document when and to whom you reported the concern.</p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Know Your Protection Rights</h3>
+            <p>Understand that you have legal protection against retaliation for reporting safety concerns. Familiarize yourself with whistleblower protections that apply to your situation.</p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Escalate If Necessary</h3>
+            <p>If the issue isn't addressed internally, consider filing a complaint with OSHA or your local workplace safety agency. You have the right to request an inspection if you believe there's a serious hazard or your employer isn't following safety regulations.</p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>Seek Legal Advice</h3>
+            <p>If you've been injured, become ill due to unsafe conditions, or faced retaliation for reporting safety issues, consult with a workplace rights advocate to understand your options for compensation and protection.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rights & Regulations -->
+  <section class="dark-section">
+    <div class="container">
+      <h2>Your Workplace Safety Rights</h2>
+      <p>All employees have fundamental safety rights protected by law:</p>
+      
+      <div class="rights-list">
+        <div class="right-item">
+          <h3>Right to a Safe Workplace</h3>
+          <p>Employers must provide workplaces free from recognized hazards that could cause serious physical harm. This includes providing necessary safety equipment, training, and maintaining safe conditions.</p>
+        </div>
+        
+        <div class="right-item">
+          <h3>Right to Information</h3>
+          <p>You have the right to information about hazardous materials, access to workplace injury records, and copies of safety standards. Employers must inform employees about safety hazards and provide proper training.</p>
+        </div>
+        
+        <div class="right-item">
+          <h3>Right to Report</h3>
+          <p>You can file confidential complaints about workplace hazards and request OSHA inspections. Your employer cannot retaliate against you for exercising these rights or reporting safety concerns.</p>
+        </div>
+        
+        <div class="right-item">
+          <h3>Right to Refuse Dangerous Work</h3>
+          <p>Under specific circumstances, you can refuse to perform tasks if you reasonably believe they present an imminent danger that could cause serious injury or death, and there's no reasonable alternative.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section>
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <h3>Can my employer fire me for reporting safety issues?</h3>
+          <p>No. Whistleblower protection laws prohibit employers from retaliating against employees who report safety violations. This includes termination, demotion, reduction in hours, or any other adverse action. If you experience retaliation, document it and seek legal assistance immediately.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>What should I do if I'm injured at work?</h3>
+          <p>Seek medical attention immediately. Report the injury to your supervisor as soon as possible. Follow your employer's procedures for reporting workplace injuries and file for workers' compensation benefits. Document everything related to your injury, including medical records and communications with your employer.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>My employer doesn't provide personal protective equipment (PPE). Is this legal?</h3>
+          <p>In most cases, no. Employers are generally required to provide necessary PPE at no cost to employees when it's needed to work safely. This includes items like gloves, eye protection, hearing protection, and respiratory protection. If your employer fails to provide required PPE, you can file a complaint with OSHA.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>Can I refuse to work if conditions seem unsafe?</h3>
+          <p>You can refuse to work if you reasonably believe that performing a task would put you in imminent danger. However, you should communicate your concerns to your employer first, request alternative work, and remain at the worksite unless there's no safe alternative. Contact OSHA immediately if you're unsure about your rights in a specific situation.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h3>How do I know which safety regulations apply to my workplace?</h3>
+          <p>OSHA regulations vary by industry. Your employer should have relevant safety standards available for review. You can also search for industry-specific standards on the OSHA website or contact your regional OSHA office for guidance. Consider consulting with a workplace safety advocate if you need help identifying applicable regulations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section>
+    <div class="container">
+      <h2>Safety Resources & Tools</h2>
+      <p>These resources can help you understand safety standards and access support:</p>
+      
+      <div class="resources-grid">
+        <div class="resource-card">
+          <h3>Regulatory Resources</h3>
+          <ul>
+            <li><a href="#">OSHA Standards Database</a></li>
+            <li><a href="#">State Safety Agencies Directory</a></li>
+            <li><a href="#">Industry-Specific Guidelines</a></li>
+            <li><a href="#">Chemical Hazard Information</a></li>
+          </ul>
+        </div>
+        
+        <div class="resource-card">
+          <h3>Documentation Tools</h3>
+          <ul>
+            <li><a href="#">Safety Hazard Documentation Form</a></li>
+            <li><a href="#">Incident Reporting Template</a></li>
+            <li><a href="#">Communication Log Tracker</a></li>
+            <li><a href="#">Safety Complaint Letter Templates</a></li>
+          </ul>
+        </div>
+        
+        <div class="resource-card">
+          <h3>Support Organizations</h3>
+          <ul>
+            <li><a href="#">National Council for Occupational Safety & Health</a></li>
+            <li><a href="#">Workers' Rights Centers Network</a></li>
+            <li><a href="#">Industry Safety Committees</a></li>
+            <li><a href="#">Legal Aid Services Directory</a></li>
+          </ul>
+        </div>
+        
+        <div class="resource-card">
+          <h3>Education & Training</h3>
+          <ul>
+            <li><a href="#">Safety Rights Webinar Series</a></li>
+            <li><a href="#">Hazard Identification Training</a></li>
+            <li><a href="#">Assertive Communication Guide</a></li>
+            <li><a href="#">Industry-Specific Safety Courses</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Story Section -->
+  <section class="dark-section">
+    <div class="container">
+      <h2>Safety Success Story</h2>
+      
+      <div class="story-content" style="max-width: 800px; margin: 0 auto;">
+        <h3>Manufacturing Employees Secure Critical Safety Improvements</h3>
+        <p>When employees at Riverside Manufacturing noticed safety guards being removed from production equipment to increase output, they knew they had to take action before someone was seriously injured. Their employer had created a culture where production speed was prioritized over safety protocols.</p>
+        
+        <p>A group of employees documented the hazards, keeping detailed records of when guards were removed and which supervisors had ordered the modifications. They attempted to resolve the issue internally first, bringing their concerns to management through proper channels.</p>
+        
+        <p>When the company failed to address these serious violations, the employees filed a confidential complaint with OSHA. During the subsequent inspection, numerous safety violations were identified. The company faced significant fines and was required to implement comprehensive safety improvements, including:</p>
+        
+        <ul style="color: var(--text-light);">
+          <li>Restoration of all safety guards and mechanisms</li>
+          <li>Installation of additional machine guarding</li>
+          <li>Implementation of a comprehensive safety training program</li>
+          <li>Establishment of a safety committee with employee representation</li>
+          <li>Regular safety audits and inspections</li>
+        </ul>
+        
+        <p>The employees were protected from retaliation under whistleblower laws, and their actions potentially prevented serious injuries. This case demonstrates how employees can effectively advocate for safer working conditions, even when facing resistance from management.</p>
+        
+        <p><a href="stories/safety-improvements.html" style="color: var(--text-light); text-decoration: underline;">Read the full story →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Need Help With a Workplace Safety Issue?</h2>
+      <p>Our advocates can help you understand your rights and take appropriate action</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn primary">FREE CONSULTATION</a>
+        <a href="resources/safety-documentation.html" class="btn secondary">DOWNLOAD SAFETY RESOURCES</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <p>+1 (000) 123-4567</p>
+        <p>rights@lawandorder.com</p>
+        <p>123 Legal Street, Justice City</p>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Workplace Issues</h3>
+        <ul>
+          <li><a href="discrimination.html">Workplace Discrimination</a></li>
+          <li><a href="bureaucratic-challenges.html">Policy Challenges</a></li>
+          <li><a href="labor-rights.html">Labor Rights & Wages</a></li>
+          <li><a href="workplace-safety.html">Workplace Safety</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="resources/documentation.html">Documentation Tools</a></li>
+          <li><a href="resources/guides.html">Self-Advocacy Guides</a></li>
+          <li><a href="resources/templates.html">Complaint Templates</a></li>
+          <li><a href="resources/videos.html">Educational Videos</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>About Us</h3>
+        <ul>
+          <li><a href="about.html">Our Mission</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="success-stories.html">Success Stories</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>© 2025 Law & Order. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
