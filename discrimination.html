@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workplace Discrimination | Law & Order</title>
+  <style>
+    /* Base theme colors - black theme */
+    :root {
+      --bg-primary: #e5e5e0;
+      --bg-secondary: #1c1c1c;
+      --text-light: #e5e5e0;
+      --text-dark: #1c1c1c;
+      --accent: #333333;
+      --btn-primary: #1c1c1c;
+      --btn-hover: #333333;
+      --section-padding: 4rem 5%;
+    }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: var(--bg-primary);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    nav ul li {
+      margin: 0 1rem;
+    }
+    
+    nav ul li a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      color: #555;
+    }
+    
+    .free-consultation-btn {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+      font-weight: 600;
+    }
+    
+    .free-consultation-btn:hover {
+      background-color: #333;
+    }
+    
+    /* Page hero */
+    .page-hero {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: var(--section-padding);
+      text-align: center;
+    }
+    
+    .page-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .page-hero p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Section styling */
+    section {
+      padding: var(--section-padding);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Discrimination types */
+    .discrimination-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .discrimination-card {
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    
+    .discrimination-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .discrimination-card h3 {
+      font-size: 1.3rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    
+    .discrimination-card p {
+      margin-bottom: 1rem;
+    }
+    
+    .discrimination-card ul {
+      padding-left: 1.2rem;
+    }
+    
+    .discrimination-card ul li {
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Signs and examples */
+    .signs-section {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+    }
+    
+    .signs-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .sign-item {
+      margin-bottom: 2rem;
+    }
+    
+    .sign-item h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .sign-item p {
+      margin-bottom: 1rem;
+    }
+    
+    .example-box {
+      background-color: rgba(255,255,255,0.1);
+      padding: 1.2rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+    }
+    
+    .example-box strong {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Documentation section */
+    .documentation-steps {
+      max-width: 800px;
+      margin: 2rem auto 0;
+    }
+    
+    .doc-step {
+      display: flex;
+      margin-bottom: 2rem;
+    }
+    
+    .doc-step-number {
+      flex: 0 0 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-right: 1.5rem;
+    }
+    
+    .doc-step-content h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    /* Resources section */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .resource-card {
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    
+    .resource-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .resource-card h3 {
+      font-size: 1.3rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    
+    .resource-card p {
+      margin-bottom: 1rem;
+    }
+    
+    .resource-card .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+    }
+    
+    .resource-card .btn:hover {
+      background-color: #333;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background-color: var(--bg-primary);
+      text-align: center;
+    }
+    
+    .cta-buttons {
+      margin-top: 2rem;
+    }
+    
+    .cta-buttons .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      margin: 0 0.5rem 1rem 0.5rem;
+      text-transform: uppercase;
+    }
+    
+    .cta-buttons .primary {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+    }
+    
+    .cta-buttons .secondary {
+      border: 1px solid var(--text-dark);
+      color: var(--text-dark);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 3rem 5% 2rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-column h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-column a {
+      color: var(--text-light);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    
+    .footer-column a:hover {
+      opacity: 1;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--bg-primary);
+      min-width: 200px;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-item {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: var(--text-dark);
+    }
+    
+    .dropdown-item:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .page-hero h1 {
+        font-size: 2rem;
+      }
+      
+      nav ul {
+        display: none;
+      }
+      
+      .discrimination-grid,
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with navigation -->
+  <header>
+    <div class="logo">
+      Law & Order
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Workplace Rights</a>
+          <div class="dropdown-content">
+            <a class="dropdown-item" href="discrimination.html">Workplace Discrimination</a>
+            <a class="dropdown-item" href="bureaucratic-challenges.html">Policy Challenges</a>
+            <a class="dropdown-item" href="labor-rights.html">Labor Rights & Wages</a>
+            <a class="dropdown-item" href="workplace-safety.html">Workplace Safety</a>
+          </div>
+        </li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="success-stories.html">Success Stories</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="free-consultation-btn">FREE CONSULTATION</a>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <h1>Workplace Discrimination</h1>
+    <p>Understanding, recognizing, and addressing discrimination in the workplace to create more equitable environments for all employees.</p>
+  </section>
+
+  <!-- Types of Discrimination -->
+  <section>
+    <div class="container">
+      <h2>Types of Workplace Discrimination</h2>
+      <p>Workplace discrimination occurs when an employee or job applicant is treated unfavorably because of who they are. Learn about the common forms of discrimination and your rights:</p>
+      
+      <div class="discrimination-grid">
+        <div class="discrimination-card">
+          <h3>Race & Ethnicity Discrimination</h3>
+          <p>Treating an employee unfavorably because of race, color, or ethnic background. This includes:</p>
+          <ul>
+            <li>Racial slurs or offensive remarks</li>
+            <li>Denial of opportunities due to race</li>
+            <li>Unequal enforcement of policies</li>
+            <li>Caste-based discrimination</li>
+          </ul>
+        </div>
+        
+        <div class="discrimination-card">
+          <h3>Gender Discrimination</h3>
+          <p>Treating employees differently based on gender, gender identity, or expression. Examples include:</p>
+          <ul>
+            <li>Unequal pay for equal work</li>
+            <li>Gender-based promotion practices</li>
+            <li>Discriminatory hiring</li>
+            <li>Pregnancy discrimination</li>
+          </ul>
+        </div>
+        
+        <div class="discrimination-card">
+          <h3>Age Discrimination</h3>
+          <p>Treating workers aged 40 or older unfavorably due to age. Signs include:</p>
+          <ul>
+            <li>Age-based layoffs or forced retirement</li>
+            <li>Age-specific job ads or requirements</li>
+            <li>Dismissive comments about age</li>
+            <li>Passing over qualified older workers</li>
+          </ul>
+        </div>
+        
+        <div class="discrimination-card">
+          <h3>Disability Discrimination</h3>
+          <p>Unfair treatment of qualified individuals with disabilities. This includes:</p>
+          <ul>
+            <li>Failure to provide reasonable accommodations</li>
+            <li>Harassment based on disability</li>
+            <li>Disability-related inquiries before job offers</li>
+            <li>Segregation of workers with disabilities</li>
+          </ul>
+        </div>
+        
+        <div class="discrimination-card">
+          <h3>Religion & Belief Discrimination</h3>
+          <p>Unfavorable treatment based on religious beliefs or practices. Look for:</p>
+          <ul>
+            <li>Denial of reasonable religious accommodations</li>
+            <li>Mandatory religious activities</li>
+            <li>Exclusion based on faith</li>
+            <li>Religious harassment</li>
+          </ul>
+        </div>
+        
+        <div class="discrimination-card">
+          <h3>Other Protected Classes</h3>
+          <p>Additional forms of discriminatory treatment include:</p>
+          <ul>
+            <li>Sexual orientation discrimination</li>
+            <li>National origin discrimination</li>
+            <li>Military/veteran status discrimination</li>
+            <li>Genetic information discrimination</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signs of Discrimination -->
+  <section class="signs-section">
+    <div class="container">
+      <div class="signs-container">
+        <h2>Recognizing Discrimination</h2>
+        <p>Discrimination can be subtle or overt. Here are key indicators to help you identify potential discrimination:</p>
+        
+        <div class="sign-item">
+          <h3>Disparate Treatment</h3>
+          <p>When similarly situated employees are treated differently based on protected characteristics.</p>
+          <div class="example-box">
+            <strong>Example:</strong> Two employees with similar qualifications and experience apply for the same promotion, but only the employee from the majority group is interviewed or considered.
+          </div>
+        </div>
+        
+        <div class="sign-item">
+          <h3>Hostile Work Environment</h3>
+          <p>When offensive conduct based on protected characteristics is severe or pervasive enough to create an intimidating workplace.</p>
+          <div class="example-box">
+            <strong>Example:</strong> Regular jokes, slurs, or derogatory comments targeting employees of a specific religion, with management failing to address the behavior despite complaints.
+          </div>
+        </div>
+        
+        <div class="sign-item">
+          <h3>Systemic Patterns</h3>
+          <p>When policies or practices disproportionately impact a protected group despite appearing neutral.</p>
+          <div class="example-box">
+            <strong>Example:</strong> A company policy requiring all employees to work specific religious holidays without exceptions, which adversely affects those who observe those holidays.
+          </div>
+        </div>
+        
+        <div class="sign-item">
+          <h3>Retaliation</h3>
+          <p>When an employer takes adverse action against an employee for reporting discrimination or participating in a discrimination investigation.</p>
+          <div class="example-box">
+            <strong>Example:</strong> An employee who files a discrimination complaint suddenly receives negative performance reviews, reduced hours, or is excluded from meetings.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documentation Section -->
+  <section>
+    <div class="container">
+      <h2>Documenting Discrimination</h2>
+      <p>Proper documentation is crucial when addressing workplace discrimination. Follow these steps to create a strong record:</p>
+      
+      <div class="documentation-steps">
+        <div class="doc-step">
+          <div class="doc-step-number">1</div>
+          <div class="doc-step-content">
+            <h3>Keep a Detailed Journal</h3>
+            <p>Record incidents with dates, times, locations, people involved, witnesses, and exactly what was said or done. Note how the treatment differs from that of other employees.</p>
+          </div>
+        </div>
+        
+        <div class="doc-step">
+          <div class="doc-step-number">2</div>
+          <div class="doc-step-content">
+            <h3>Save Communications</h3>
+            <p>Preserve emails, messages, letters, or notes that demonstrate discriminatory treatment. Forward work emails to a personal account if appropriate.</p>
+          </div>
+        </div>
+        
+        <div class="doc-step">
+          <div class="doc-step-number">3</div>
+          <div class="doc-step-content">
+            <h3>Obtain Company Policies</h3>
+            <p>Get copies of relevant workplace policies, employee handbooks, and any communications regarding discrimination reporting procedures.</p>
+          </div>
+        </div>
+        
+        <div class="doc-step">
+          <div class="doc-step-number">4</div>
+          <div class="doc-step-content">
+            <h3>Report Formally</h3>
+            <p>Follow your company's procedure for reporting discrimination. Keep copies of all complaints filed and responses received.</p>
+          </div>
+        </div>
+        
+        <div class="doc-step">
+          <div class="doc-step-number">5</div>
+          <div class="doc-step-content">
+            <h3>Track Performance</h3>
+            <p>Maintain records of your performance, including reviews, achievements, and any recognition. This can help counter false claims of poor performance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section>
+    <div class="container">
+      <h2>Anti-Discrimination Resources</h2>
+      <p>These resources can help you navigate workplace discrimination issues:</p>
+      
+      <div class="resources-grid">
+        <div class="resource-card">
+          <h3>Documentation Template</h3>
+          <p>A structured template for properly documenting incidents of discrimination in the workplace.</p>
+          <a href="resources/templates.html#discrimination" class="btn">Download Template</a>
+        </div>
+        
+        <div class="resource-card">
+          <h3>Know Your Rights Guide</h3>
+          <p>Comprehensive information about anti-discrimination laws and protected categories.</p>
+          <a href="resources/guides.html#discrimination-rights" class="btn">View Guide</a>
+        </div>
+        
+        <div class="resource-card">
+          <h3>Reporting Strategies</h3>
+          <p>Step-by-step guidance on how to effectively report discrimination to HR or management.</p>
+          <a href="resources/guides.html#reporting" class="btn">Read Strategies</a>
+        </div>
+        
+        <div class="resource-card">
+          <h3>External Agencies</h3>
+          <p>Information about government agencies that handle discrimination complaints.</p>
+          <a href="resources/guides.html#external-agencies" class="btn">View Agencies</a>
+        </div>
+        
+        <div class="resource-card">
+          <h3>Support Networks</h3>
+          <p>Connect with groups and forums where you can find support from others facing similar challenges.</p>
+          <a href="resources/guides.html#support-networks" class="btn">Find Support</a>
+        </div>
+        
+        <div class="resource-card">
+          <h3>Legal Consultation</h3>
+          <p>Get professional advice about your specific situation from our workplace rights advocates.</p>
+          <a href="contact.html" class="btn">Request Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Need Help With Workplace Discrimination?</h2>
+      <p>Our team of experienced advocates can help you understand your rights and take appropriate action</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn primary">FREE CONSULTATION</a>
+        <a href="stories/caste-discrimination.html" class="btn secondary">READ SUCCESS STORIES</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <p>+1 (000) 123-4567</p>
+        <p>rights@lawandorder.com</p>
+        <p>123 Legal Street, Justice City</p>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Workplace Issues</h3>
+        <ul>
+          <li><a href="discrimination.html">Workplace Discrimination</a></li>
+          <li><a href="bureaucratic-challenges.html">Policy Challenges</a></li>
+          <li><a href="labor-rights.html">Labor Rights & Wages</a></li>
+          <li><a href="workplace-safety.html">Workplace Safety</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="resources/documentation.html">Documentation Tools</a></li>
+          <li><a href="resources/guides.html">Self-Advocacy Guides</a></li>
+          <li><a href="resources/templates.html">Complaint Templates</a></li>
+          <li><a href="resources/videos.html">Educational Videos</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>About Us</h3>
+        <ul>
+          <li><a href="about.html">Our Mission</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="success-stories.html">Success Stories</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>© 2025 Law & Order. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
