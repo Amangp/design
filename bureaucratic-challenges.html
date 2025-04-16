@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Policy Challenges | Law & Order Workplace Rights Advocates</title>
+  <style>
+    /* Base theme colors - black theme */
+    :root {
+      --bg-primary: #e5e5e0;
+      --bg-secondary: #1c1c1c;
+      --text-light: #e5e5e0;
+      --text-dark: #1c1c1c;
+      --accent: #333333;
+      --btn-primary: #1c1c1c;
+      --btn-hover: #333333;
+      --section-padding: 4rem 5%;
+    }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: var(--bg-primary);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    nav ul li {
+      margin: 0 1rem;
+    }
+    
+    nav ul li a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      color: #555;
+    }
+    
+    .free-consultation-btn {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+      font-weight: 600;
+    }
+    
+    .free-consultation-btn:hover {
+      background-color: #333;
+    }
+    
+    /* Page header */
+    .page-header {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 4rem 5%;
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin: 0 0 1rem;
+      font-weight: 700;
+    }
+    
+    .page-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Section styling */
+    section {
+      padding: var(--section-padding);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    section h3 {
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem;
+    }
+    
+    /* Policy challenges list */
+    .policy-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .policy-item {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      transition: transform 0.3s;
+    }
+    
+    .policy-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .policy-item h3 {
+      margin-top: 0;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .policy-item ul {
+      padding-left: 1.2rem;
+    }
+    
+    .policy-item li {
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Rights article */
+    .rights-article {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .rights-article h3 {
+      margin-top: 2rem;
+    }
+    
+    .rights-list {
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .rights-list h4 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    /* Case examples */
+    .case-examples {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .case-card {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .case-image {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .case-content {
+      padding: 1.5rem;
+    }
+    
+    .case-content h4 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    .case-content a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .case-content a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Action steps */
+    .action-steps {
+      background-color: #f0f0f0;
+      padding: 3rem 5%;
+      margin-top: 2rem;
+    }
+    
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .step-box {
+      background-color: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .step-number {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    
+    .step-box h4 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background-color: var(--bg-primary);
+      text-align: center;
+    }
+    
+    .cta-buttons {
+      margin-top: 2rem;
+    }
+    
+    .cta-buttons .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      margin: 0 0.5rem 1rem 0.5rem;
+      text-transform: uppercase;
+    }
+    
+    .cta-buttons .primary {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+    }
+    
+    .cta-buttons .secondary {
+      border: 1px solid var(--text-dark);
+      color: var(--text-dark);
+    }
+    
+    /* Resource downloads */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .resource-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1.5rem;
+      background-color: white;
+    }
+    
+    .resource-card h4 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    .resource-card p {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .download-btn {
+      display: inline-block;
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+    
+    /* FAQ Section */
+    .faq-container {
+      max-width: 800px;
+      margin: 2rem auto 0;
+    }
+    
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+      padding: 1.5rem 0;
+    }
+    
+    .faq-question {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      cursor: pointer;
+    }
+    
+    .faq-answer {
+      margin-top: 0.75rem;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 3rem 5% 2rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-column h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-column a {
+      color: var(--text-light);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    
+    .footer-column a:hover {
+      opacity: 1;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--bg-primary);
+      min-width: 200px;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-item {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: var(--text-dark);
+    }
+    
+    .dropdown-item:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      
+      .case-examples {
+        grid-template-columns: 1fr;
+      }
+      
+      .policy-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with improved navigation -->
+  <header>
+    <div class="logo">
+      Law & Order
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Workplace Rights</a>
+          <div class="dropdown-content">
+            <a class="dropdown-item" href="discrimination.html">Workplace Discrimination</a>
+            <a class="dropdown-item" href="bureaucratic-challenges.html">Policy Challenges</a>
+            <a class="dropdown-item" href="labor-rights.html">Labor Rights & Wages</a>
+            <a class="dropdown-item" href="workplace-safety.html">Workplace Safety</a>
+          </div>
+        </li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="success-stories.html">Success Stories</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="free-consultation-btn">FREE CONSULTATION</a>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Navigating Workplace Policy Challenges</h1>
+    <p>Understanding and addressing unfair workplace policies, bureaucratic obstacles, and administrative barriers</p>
+  </div>
+
+  <!-- Main Content -->
+  <section>
+    <div class="container">
+      <div class="rights-article">
+        <p>Navigating bureaucratic challenges in the workplace can be one of the most frustrating aspects of employment. From opaque policies to administrative red tape, these obstacles can significantly impact your work experience, career advancement, and even your rights as an employee.</p>
+        
+        <p>At Law & Order Workplace Rights Advocates, we help employees navigate these complex challenges, ensuring fair treatment and advocating for clearer, more equitable workplace policies.</p>
+        
+        <h2>Common Workplace Policy Challenges</h2>
+        
+        <div class="policy-list">
+          <div class="policy-item">
+            <h3>Procedural Barriers</h3>
+            <ul>
+              <li>Excessive approval processes</li>
+              <li>Unclear reporting structures</li>
+              <li>Contradictory workplace policies</li>
+              <li>Inconsistent policy enforcement</li>
+              <li>Ineffective grievance procedures</li>
+            </ul>
+          </div>
+          
+          <div class="policy-item">
+            <h3>Restrictive Policies</h3>
+            <ul>
+              <li>Overly strict attendance policies</li>
+              <li>Inflexible work arrangements</li>
+              <li>Unreasonable non-compete agreements</li>
+              <li>Restrictive communication policies</li>
+              <li>Excessive monitoring and surveillance</li>
+            </ul>
+          </div>
+          
+          <div class="policy-item">
+            <h3>Administrative Obstacles</h3>
+            <ul>
+              <li>Benefit enrollment difficulties</li>
+              <li>Leave request complications</li>
+              <li>Accommodation request barriers</li>
+              <li>Complex reimbursement processes</li>
+              <li>Scheduling inflexibility</li>
+            </ul>
+          </div>
+        </div>
+        
+        <h2>Your Rights When Facing Policy Challenges</h2>
+        
+        <p>Even with complex workplace bureaucracy, you maintain certain fundamental rights that employers must respect:</p>
+        
+        <div class="rights-list">
+          <h4>You Have the Right To:</h4>
+          <ul>
+            <li><strong>Clear Policy Communication</strong> - Access to all policies that affect your employment</li>
+            <li><strong>Consistent Treatment</strong> - Fair and equal application of workplace policies</li>
+            <li><strong>Voice Concerns</strong> - Raise issues about policies without retaliation</li>
+            <li><strong>Request Accommodations</strong> - Reasonable adjustments to policies for protected reasons</li>
+            <li><strong>Access Your Records</strong> - Review your personnel file and employment documents</li>
+          </ul>
+        </div>
+        
+        <h3>When Policies May Be Unlawful</h3>
+        
+        <p>Some workplace policies, regardless of how they're presented, may violate employment laws when they:</p>
+        
+        <ul>
+          <li>Disproportionately impact protected groups (disparate impact)</li>
+          <li>Interfere with legally protected activities (like discussing wages)</li>
+          <li>Violate privacy laws or overreach into personal matters</li>
+          <li>Prevent reasonable accommodations for disabilities or religious practices</li>
+          <li>Override statutory rights to leave, breaks, or other protections</li>
+          <li>Include unlawful restrictions on future employment</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Examples -->
+  <section class="dark-section">
+    <div class="container">
+      <h2>Real Policy Challenge Cases</h2>
+      <p>Examples of how employees successfully navigated policy obstacles:</p>
+      
+      <div class="case-examples">
+        <div class="case-card">
+          <div class="case-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="case-content">
+            <h4>Attendance Policy Reform</h4>
+            <p>How employees challenged a points-based attendance system that penalized medical absences</p>
+            <a href="stories/attendance-policy.html">Read Case Study →</a>
+          </div>
+        </div>
+        
+        <div class="case-card">
+          <div class="case-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="case-content">
+            <h4>Remote Work Policy Victory</h4>
+            <p>Challenging inconsistent application of flexible work policies</p>
+            <a href="stories/remote-work-policy.html">Read Case Study →</a>
+          </div>
+        </div>
+        
+        <div class="case-card">
+          <div class="case-image" style="background-image: url('/api/placeholder/400/250')"></div>
+          <div class="case-content">
+            <h4>Leave Request Barriers Overcome</h4>
+            <p>How employees addressed excessive requirements for family medical leave</p>
+            <a href="stories/leave-request.html">Read Case Study →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Action Steps -->
+  <section class="action-steps">
+    <div class="container">
+      <h2>Taking Action Against Policy Challenges</h2>
+      <p>Follow these steps to effectively address workplace policy issues:</p>
+      
+      <div class="step-grid">
+        <div class="step-box">
+          <div class="step-number">1</div>
+          <h4>Document Everything</h4>
+          <p>Keep detailed records of all policy-related communications, including emails, memos, and conversations. Note inconsistencies in how policies are applied.</p>
+        </div>
+        
+        <div class="step-box">
+          <div class="step-number">2</div>
+          <h4>Research & Understand</h4>
+          <p>Request written copies of all relevant policies. Compare to industry standards and legal requirements to identify potential issues.</p>
+        </div>
+        
+        <div class="step-box">
+          <div class="step-number">3</div>
+          <h4>Address Internally</h4>
+          <p>Follow company procedures for raising concerns. Consider approaching HR or management with specific examples and proposed solutions.</p>
+        </div>
+        
+        <div class="step-box">
+          <div class="step-number">4</div>
+          <h4>Seek Support</h4>
+          <p>Connect with colleagues facing similar challenges. Consider contacting employee resource groups or workplace advocates for guidance.</p>
+        </div>
+        
+        <div class="step-box">
+          <div class="step-number">5</div>
+          <h4>Formal Complaint</h4>
+          <p>If internal resolution fails, consider formal complaints to appropriate agencies or legal consultation for policies that may violate employment laws.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources -->
+  <section>
+    <div class="container">
+      <h2>Policy Challenge Resources</h2>
+      <p>Download these resources to help navigate workplace policy issues:</p>
+      
+      <div class="resources-grid">
+        <div class="resource-card">
+          <h4>Policy Analysis Worksheet</h4>
+          <p>A step-by-step guide to evaluating workplace policies for potential legal issues and negotiation points.</p>
+          <a href="downloads/policy-analysis.pdf" class="download-btn">DOWNLOAD</a>
+        </div>
+        
+        <div class="resource-card">
+          <h4>Policy Challenge Letter Templates</h4>
+          <p>Professional templates for addressing policy concerns with HR and management.</p>
+          <a href="downloads/policy-letters.pdf" class="download-btn">DOWNLOAD</a>
+        </div>
+        
+        <div class="resource-card">
+          <h4>Documentation Tracker</h4>
+          <p>A tool to systematically record policy applications, inconsistencies, and their impacts.</p>
+          <a href="downloads/documentation-tracker.pdf" class="download-btn">DOWNLOAD</a>
+        </div>
+        
+        <div class="resource-card">
+          <h4>Policy Rights Guide</h4>
+          <p>Overview of legal protections against common problematic workplace policies.</p>
+          <a href="downloads/policy-rights.pdf" class="download-btn">DOWNLOAD</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section>
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">Can an employer change workplace policies without notice?</div>
+          <div class="faq-answer">
+            <p>Generally, employers can modify policies, but significant changes may require reasonable notice. If the policy was part of an employment contract or collective agreement, unilateral changes may be restricted. Some jurisdictions have specific requirements for policy changes affecting critical terms of employment.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">What if a workplace policy conflicts with my religious practices?</div>
+          <div class="faq-answer">
+            <p>Employers are generally required to provide reasonable accommodations for religious practices unless they would create undue hardship. You can request a policy exception or accommodation, and the employer should engage in an interactive process to find a workable solution.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">Can I be disciplined for violating a policy I wasn't informed about?</div>
+          <div class="faq-answer">
+            <p>While employers have broad discretion in creating policies, fundamental fairness (and in some cases, legal requirements) dictates that employees should be properly informed of policies they're expected to follow, especially those with disciplinary consequences.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">Are there limits to what can be included in a non-compete agreement?</div>
+          <div class="faq-answer">
+            <p>Yes. Non-compete agreements must generally be reasonable in geographic scope, duration, and the activities they restrict. Many states have specific limitations on non-competes, and some have banned them entirely for certain workers. Overly broad restrictions may be unenforceable.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">What should I do if policies are applied differently based on favoritism?</div>
+          <div class="faq-answer">
+            <p>Document specific examples of inconsistent policy application. If the inconsistency correlates with protected characteristics (race, gender, age, etc.), it could potentially violate anti-discrimination laws. Address concerns through proper channels and consider consulting a workplace rights advocate if the pattern continues.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Facing Policy Challenges at Work?</h2>
+      <p>Get expert guidance on navigating complex workplace policies</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn primary">FREE CONSULTATION</a>
+        <a href="resources.html" class="btn secondary">EXPLORE RESOURCES</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <p>+1 (000) 123-4567</p>
+        <p>rights@lawandorder.com</p>
+        <p>123 Legal Street, Justice City</p>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Workplace Issues</h3>
+        <ul>
+          <li><a href="discrimination.html">Workplace Discrimination</a></li>
+          <li><a href="bureaucratic-challenges.html">Policy Challenges</a></li>
+          <li><a href="labor-rights.html">Labor Rights & Wages</a></li>
+          <li><a href="workplace-safety.html">Workplace Safety</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="resources/documentation.html">Documentation Tools</a></li>
+          <li><a href="resources/guides.html">Self-Advocacy Guides</a></li>
+          <li><a href="resources/templates.html">Complaint Templates</a></li>
+          <li><a href="resources/videos.html">Educational Videos</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>About Us</h3>
+        <ul>
+          <li><a href="about.html">Our Mission</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="success-stories.html">Success Stories</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>© 2025 Law & Order. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple FAQ toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+          const answer = this.nextElementSibling;
+          
+          if (answer.style.display === 'none' || answer.style.display === '') {
+            answer.style.display = 'block';
+            this.style.fontWeight = '700';
+          } else {
+            answer.style.display = 'none';
+            this.style.fontWeight = '600';
+          }
+        });
+        
+        // Initially hide answers
+        question.nextElementSibling.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
