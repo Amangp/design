@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Labor Rights & Wages | Law & Order Workplace Rights Advocates</title>
+  <style>
+    .feature-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-left: auto;
+      margin-right: 1rem;
+    }
+    .language-toggle, .voice-control {
+      display: flex;
+      align-items: center;
+      background: var(--bg-secondary);
+      border-radius: 4px;
+      overflow: hidden;
+      color: var(--text-light);
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    .language-btn, .voice-btn {
+      padding: 0.5rem 0.75rem;
+      background: transparent;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .language-btn.active, .voice-btn.active {
+      background-color: #444;
+    }
+    .language-btn:hover, .voice-btn:hover {
+      background-color: #333;
+    }
+    .voice-control svg {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+      fill: white;
+    }
+    
+    /* Base theme colors - keeping original black theme */
+    :root {
+      --bg-primary: #e5e5e0;
+      --bg-secondary: #1c1c1c;
+      --text-light: #e5e5e0;
+      --text-dark: #1c1c1c;
+      --accent: #333333;
+      --btn-primary: #1c1c1c;
+      --btn-hover: #333333;
+      --section-padding: 4rem 5%;
+    }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: var(--bg-primary);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    nav ul li {
+      margin: 0 1rem;
+    }
+    
+    nav ul li a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      color: #555;
+    }
+    
+    .free-consultation-btn {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+      font-weight: 600;
+    }
+    
+    .free-consultation-btn:hover {
+      background-color: #333;
+    }
+    
+    /* Page header */
+    .page-header {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 4rem 5%;
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin: 0 0 1rem;
+      font-weight: 700;
+    }
+    
+    .page-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Content with sidebar layout */
+    .content-with-sidebar {
+      display: grid;
+      grid-template-columns: 7fr 3fr;
+      gap: 2rem;
+    }
+    
+    /* News sidebar */
+    .news-sidebar {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      position: sticky;
+      top: 100px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    
+    .news-sidebar h3 {
+      margin-top: 0;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.75rem;
+    }
+    
+    .news-item {
+      border-bottom: 1px solid #eee;
+      padding: 1rem 0;
+    }
+    
+    .news-item:last-child {
+      border-bottom: none;
+    }
+    
+    .news-date {
+      font-size: 0.8rem;
+      color: #777;
+      margin-bottom: 0.3rem;
+    }
+    
+    .news-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .news-snippet {
+      font-size: 0.9rem;
+    }
+    
+    /* Section styling */
+    section {
+      padding: var(--section-padding);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    section h3 {
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem;
+    }
+    
+    /* Video container */
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      border-radius: 8px;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .youtube-embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    
+    /* Two column layout */
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .column-content {
+      padding: 1rem 0;
+    }
+    
+    .column-image img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    /* Rights cards */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .right-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      transition: transform 0.3s;
+    }
+    
+    .right-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .right-card h3 {
+      margin-top: 0;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* Wage theft section */
+    .wage-theft-section {
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .wage-theft-types {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .theft-type {
+      background-color: white;
+      border-radius: 8px;
+      padding: 1.25rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .theft-type h4 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    /* Calculator widget */
+    .calculator-widget {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 600px;
+    }
+    
+    .calculator-widget h3 {
+      text-align: center;
+      margin-top: 0;
+    }
+    
+    .calculator-form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    
+    .calculate-btn {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 1rem;
+      width: 100%;
+    }
+    
+    .result-box {
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      display: none;
+    }
+    
+    /* Resource cards */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .resource-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: white;
+    }
+    
+    .resource-image {
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .resource-content {
+      padding: 1.5rem;
+    }
+    
+    .resource-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+    }
+    
+    .resource-content p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .resource-link {
+      display: inline-block;
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Success Stories */
+    .stories-section {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+    }
+    
+    .story-slider {
+      margin: 2rem 0;
+      overflow: hidden;
+    }
+    
+    .story-slide {
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 1rem 0;
+    }
+    
+    .story-content {
+      font-style: italic;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .story-author {
+      font-weight: 600;
+    }
+    
+    .story-position {
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 3rem 5% 2rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-column h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-column a {
+      color: var(--text-light);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    
+    .footer-column a:hover {
+      opacity: 1;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--bg-primary);
+      min-width: 200px;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-item {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: var(--text-dark);
+    }
+    
+    .dropdown-item:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+      
+      .content-with-sidebar {
+        grid-template-columns: 1fr;
+      }
+      
+      .news-sidebar {
+        position: static;
+        margin-top: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with improved navigation -->
+  <header>
+    <div class="logo">
+      Law & Order
+    </div>
+    <div class="feature-controls">
+      <div class="language-toggle">
+        <button class="language-btn active" data-lang="en">EN</button>
+        <button class="language-btn" data-lang="hi">हिं</button>
+      </div>
+      <div class="voice-control">
+        <button class="voice-btn" id="voice-toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 15c1.66 0 3-1.34 3-3V6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V6z"/>
+            <path d="M17 12c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-2.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+          </svg>
+          <span class="voice-label">Voice</span>
+        </button>
+      </div>
+    </div>
+    
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Workplace Rights</a>
+          <div class="dropdown-content">
+            <a class="dropdown-item" href="discrimination.html">Workplace Discrimination</a>
+            <a class="dropdown-item" href="bureaucratic-challenges.html">Policy Challenges</a>
+            <a class="dropdown-item" href="labor-rights.html">Labour Rights & Wages</a>
+            <a class="dropdown-item" href="workplace-safety.html">Workplace Safety</a>
+          </div>
+        </li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="success-stories.html">Success Stories</a></li>
+      </ul>
+    </nav>
+    <a href="consultation.html" class="free-consultation-btn">FREE CONSULTATION</a>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Labour Rights & Fair Wages</h1>
+    <p>Understanding your rights under Indian labour laws for fair compensation and safe working conditions</p>
+  </div>
+
+  <div class="container content-with-sidebar">
+    <div class="main-content">
+      <!-- Introduction Section -->
+      <section>
+        <div class="two-column">
+          <div class="column-content">
+            <h2>Know Your Labour Rights</h2>
+            <p>Every worker in India deserves fair treatment and compensation for their labour. Unfortunately, wage theft and violations of labour laws remain widespread problems affecting millions of workers.</p>
+            
+            <p>At Law & Order Workplace Rights Advocates, we help employees understand their rights, identify violations, and take effective action to recover unpaid wages.</p>
+          </div>
+          
+          <div class="column-image">
+            <img src="download.jpg" >
+          </div>
+        </div>
+        
+        <!-- Video introduction - REPLACED WITH YOUTUBE VIDEO 1 -->
+        <div class="video-container">
+          <iframe class="youtube-embed" src="https://www.youtube.com/embed/QcVPILsV84Q" title="Know Your Labour Rights" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <!-- Key Rights Section -->
+      <section>
+        <h2>Your Essential Labour Rights in India</h2>
+        <p>Central and State laws provide important protections for workers:</p>
+        
+        <div class="rights-grid">
+          <div class="right-card">
+            <h3>Minimum Wages</h3>
+            <p>Under the Code on Wages, 2019, you are entitled to receive at least the minimum wage set by your state government for your category of employment.</p>
+          </div>
+          
+          <div class="right-card">
+            <h3>Overtime Pay</h3>
+            <p>Most workers are entitled to overtime wages at twice the ordinary rate when working beyond standard hours (usually 8 hours daily or 48 hours weekly).</p>
+          </div>
+          
+          <div class="right-card">
+            <h3>Equal Remuneration</h3>
+            <p>The Equal Remuneration Act prohibits discrimination in wage payment based on gender for the same work or work of similar nature.</p>
+          </div>
+          
+          <div class="right-card">
+            <h3>Timely Payment</h3>
+            <p>The Payment of Wages Act regulates when and how wages must be paid and prohibits unauthorized deductions.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Wage Theft Section -->
+      <section>
+        <h2>Recognizing Wage Theft in India</h2>
+        <p>Wage theft occurs when employers fail to pay workers the full wages they've legally earned:</p>
+        
+        <!-- REPLACED WITH YOUTUBE VIDEO 2 -->
+        <div class="video-container">
+          <iframe class="youtube-embed" src="https://www.youtube.com/embed/UYocAHzCsLE" title="Recognizing Wage Theft in India" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+        <div class="wage-theft-section">
+          <h3>Common Types of Wage Violations</h3>
+          
+          <div class="wage-theft-types">
+            <div class="theft-type">
+              <h4>Unpaid Overtime</h4>
+              <p>Not paying for work beyond standard hours or the proper overtime rate (double wages).</p>
+            </div>
+            
+            <div class="theft-type">
+              <h4>Minimum Wage Violations</h4>
+              <p>Paying below the applicable minimum wage for your region and job category.</p>
+            </div>
+            
+            <div class="theft-type">
+              <h4>Illegal Deductions</h4>
+              <p>Making unauthorized deductions from wages or imposing unfair fines.</p>
+            </div>
+            
+            <div class="theft-type">
+              <h4>Delayed Payments</h4>
+              <p>Not paying wages within the timeframe specified by law (7-10 days after wage period).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Calculator Widget -->
+      <section>
+        <div class="calculator-widget">
+          <h3>Unpaid Wages Calculator</h3>
+          <p>Estimate potential unpaid wages in Indian Rupees:</p>
+          
+          <div class="calculator-form">
+            <div class="form-group">
+              <label for="hours-worked">Average Hours Worked Per Week:</label>
+              <input type="number" id="hours-worked" min="1" max="168" placeholder="e.g. 54">
+            </div>
+            
+            <div class="form-group">
+              <label for="hourly-rate">Hourly Rate (₹):</label>
+              <input type="number" id="hourly-rate" min="0" step="0.01" placeholder="e.g. 100">
+            </div>
+            
+            <div class="form-group">
+              <label for="weeks-affected">Number of Weeks Affected:</label>
+              <input type="number" id="weeks-affected" min="1" placeholder="e.g. 12">
+            </div>
+            
+            <button class="calculate-btn" id="calculate-wages">Calculate Potential Unpaid Wages</button>
+            
+            <div class="result-box" id="result-container">
+              <p><strong>Estimated Regular Pay:</strong> ₹<span id="regular-pay">0.00</span></p>
+              <p><strong>Estimated Overtime Pay:</strong> ₹<span id="overtime-pay">0.00</span></p>
+              <p><strong>Total Estimated Unpaid Wages:</strong> ₹<span id="total-unpaid">0.00</span></p>
+              <p class="note">Note: This calculator provides an estimate based on a standard 48-hour workweek with overtime calculated at 2x regular rate as per Indian labour laws.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resources Section with Video -->
+      <section>
+        <h2>Labour Rights Resources</h2>
+        <p>Essential tools to help you understand and assert your labour rights:</p>
+        
+        <!-- REPLACED WITH YOUTUBE VIDEO 3 -->
+        <div class="video-container">
+          <iframe class="youtube-embed" src="https://www.youtube.com/embed/MkVC7GOxapc" title="Labour Rights Resources" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+      <!-- Success Stories -->
+      <section class="stories-section">
+        <h2>Wage Recovery Success Stories</h2>
+        
+        <!-- REPLACED WITH YOUTUBE VIDEO 4 -->
+        <div class="video-container">
+          <iframe class="youtube-embed" src="https://www.youtube.com/embed/pSWZTjXLjUw" title="Wage Recovery Success Stories" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+        <div class="story-slider">
+          <div class="story-slide">
+            <div class="story-content">
+              "After discovering I was paid below minimum wage at my factory job in Mumbai, I used the documentation tools from this site to build my case. With proper guidance, I recovered over ₹75,000 in unpaid wages through the labour court."
+            </div>
+            <div class="story-author">Rajesh K.</div>
+            <div class="story-position">Factory Worker, Mumbai</div>
+          </div>
+          
+          <div class="story-slide">
+            <div class="story-content">
+              "My employer regularly asked us to work 12-hour shifts but only paid for 8 hours. Using the wage theft calculator and complaint templates, I helped organize my coworkers. We recovered nearly ₹2 lakhs in unpaid wages for our team."
+            </div>
+            <div class="story-author">Priya S.</div>
+            <div class="story-position">Garment Worker, Bengaluru</div>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <!-- Live News Sidebar -->
+    <div class="news-sidebar">
+      <h3>Labour Rights News</h3>
+      
+      <div class="news-item">
+        <div class="news-date">April 22, 2025</div>
+        <div class="news-title">Supreme Court Extends Protections for Gig Workers</div>
+        <div class="news-snippet">The Supreme Court ruled that gig workers are entitled to minimum wage protections under existing labour laws.</div>
+      </div>
+      
+      <div class="news-item">
+        <div class="news-date">April 20, 2025</div>
+        <div class="news-title">Ministry Launches New Complaint Portal</div>
+        <div class="news-snippet">Workers can now file wage theft complaints digitally through the new e-Shram portal.</div>
+      </div>
+      
+      <div class="news-item">
+        <div class="news-date">April 18, 2025</div>
+        <div class="news-title">Maharashtra Increases Minimum Wage</div>
+        <div class="news-snippet">The state government announced a 15% increase in minimum wage rates across all sectors effective May 1st.</div>
+      </div>
+      
+      <div class="news-item">
+        <div class="news-date">April 15, 2025</div>
+        <div class="news-title">New Deadline for Labour Code Implementation</div>
+        <div class="news-snippet">The government has set July 1 as the deadline for implementation of the four labour codes.</div>
+      </div>
+      
+      <div class="news-item">
+        <div class="news-date">April 12, 2025</div>
+        <div class="news-title">IT Workers Win Major Settlement</div>
+        <div class="news-snippet">A major IT firm has agreed to pay ₹10 crore in settlements to employees who were misclassified.</div>
+      </div>
+      
+      <div class="news-item">
+        <div class="news-date">April 10, 2025</div>
+        <div class="news-title">Bill to Strengthen Wage Theft Penalties</div>
+        <div class="news-snippet">A new bill seeks to increase penalties for employers who violate wage payment provisions.</div>
+      </div>
+      
+      <div class="news-item">
+        <div class="news-date">April 5, 2025</div>
+        <div class="news-title">Delhi Construction Workers Get Relief</div>
+        <div class="news-snippet">The Delhi High Court ordered compensation for 2,000 construction workers denied wages during project delays.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Fixed Calculator functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const calculateBtn = document.getElementById('calculate-wages');
+      const resultContainer = document.getElementById('result-container');
+      const regularPayEl = document.getElementById('regular-pay');
+      const overtimePayEl = document.getElementById('overtime-pay');
+      const totalUnpaidEl = document.getElementById('total-unpaid');
+      
+      calculateBtn.addEventListener('click', function() {
+        // Get input values
+        const hoursWorked = parseFloat(document.getElementById('hours-worked').value);
+        const hourlyRate = parseFloat(document.getElementById('hourly-rate').value);
+        const weeksAffected = parseFloat(document.getElementById('weeks-affected').value);
+        
+        // Validate inputs
+        if (isNaN(hoursWorked) || isNaN(hourlyRate) || isNaN(weeksAffected)) {
+          alert('Please enter valid numbers for all fields');
+          return;
+        }
+        
+        // Calculate wages - using 48 hours as standard Indian workweek
+       const standardHours = Math.min(hoursWorked, 48);
+        const overtimeHours = Math.max(hoursWorked - 48, 0);
+        
+        // Calculate pay amounts (overtime at 2x rate per Indian labor laws)
+        const regularPay = standardHours * hourlyRate * weeksAffected;
+        const overtimePay = overtimeHours * hourlyRate * 2 * weeksAffected;
+        const totalUnpaid = regularPay + overtimePay;
+        
+        // Display results
+        regularPayEl.textContent = regularPay.toFixed(2);
+        overtimePayEl.textContent = overtimePay.toFixed(2);
+        totalUnpaidEl.textContent = totalUnpaid.toFixed(2);
+        
+        // Show result container
+        resultContainer.style.display = 'block';
+      });
+    });
+  </script>
+  <script>
+    // Voice toggle logic
+    document.getElementById('voice-toggle').addEventListener('click', function () {
+      this.classList.toggle('active');
+      const label = this.querySelector('.voice-label');
+      label.textContent = label.textContent === 'Voice' ? 'Mute' : 'Voice';
+    });
+  
+    // Language toggle logic
+    const langBtns = document.querySelectorAll('.language-btn');
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        langBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.documentElement.lang = btn.dataset.lang;
+        // Add translation handling if needed
+      });
+    });
+  </script>
+  
+</body>
+</html>

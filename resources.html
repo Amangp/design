@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources | Law & Order</title>
+  <style>
+    .feature-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-left: auto;
+      margin-right: 1rem;
+    }
+    .language-toggle, .voice-control {
+      display: flex;
+      align-items: center;
+      background: var(--bg-secondary);
+      border-radius: 4px;
+      overflow: hidden;
+      color: var(--text-light);
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    .language-btn, .voice-btn {
+      padding: 0.5rem 0.75rem;
+      background: transparent;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .language-btn.active, .voice-btn.active {
+      background-color: #444;
+    }
+    .language-btn:hover, .voice-btn:hover {
+      background-color: #333;
+    }
+    .voice-control svg {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+      fill: white;
+    }
+    
+    .feature-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-left: auto;
+      margin-right: 1rem;
+    }
+    .language-toggle, .voice-control {
+      display: flex;
+      align-items: center;
+      background: var(--bg-secondary);
+      border-radius: 4px;
+      overflow: hidden;
+      color: var(--text-light);
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    .language-btn, .voice-btn {
+      padding: 0.5rem 0.75rem;
+      background: transparent;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .language-btn.active, .voice-btn.active {
+      background-color: #444;
+    }
+    .language-btn:hover, .voice-btn:hover {
+      background-color: #333;
+    }
+    .voice-control svg {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+      fill: white;
+    }
+    
+    /* Base theme colors - black theme */
+    :root {
+      --bg-primary: #e5e5e0;
+      --bg-secondary: #1c1c1c;
+      --text-light: #e5e5e0;
+      --text-dark: #1c1c1c;
+      --accent: #333333;
+      --btn-primary: #1c1c1c;
+      --btn-hover: #333333;
+      --section-padding: 4rem 5%;
+    }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: var(--bg-primary);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    nav ul li {
+      margin: 0 1rem;
+    }
+    
+    nav ul li a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      color: #555;
+    }
+    
+    .free-consultation-btn {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+      font-weight: 600;
+    }
+    
+    .free-consultation-btn:hover {
+      background-color: #333;
+    }
+    
+    /* Language selector */
+    .language-selector {
+      margin-right: 1rem;
+      position: relative;
+    }
+    
+    .language-btn {
+      background: transparent;
+      border: 1px solid #ddd;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    
+    .language-options {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 150px;
+      display: none;
+      z-index: 100;
+    }
+    
+    .language-selector:hover .language-options {
+      display: block;
+    }
+    
+    .language-options a {
+      display: block;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 0.8rem;
+    }
+    
+    .language-options a:hover {
+      background-color: #f5f5f5;
+    }
+    
+    /* Page header section */
+    .page-header {
+      background-color: var(--bg-secondary);
+      padding: var(--section-padding);
+      color: var(--text-light);
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .page-header p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    /* Section styling */
+    section {
+      padding: var(--section-padding);
+    }
+    
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Resource categories */
+    .resource-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      justify-content: center;
+    }
+    
+    .category-btn {
+      background-color: transparent;
+      border: 2px solid var(--bg-secondary);
+      color: var(--text-dark);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .category-btn:hover, .category-btn.active {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+    }
+    
+    /* Resource grid */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .resource-card {
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .resource-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .resource-header {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 1.5rem;
+    }
+    
+    .resource-header h3 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+    
+    .resource-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .resource-description {
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .resource-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .resource-tag {
+      background-color: #e0e0e0;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    
+    .resource-links {
+      margin-top: auto;
+    }
+    
+    .resource-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+    }
+    
+    .resource-btn:hover {
+      background-color: #333;
+    }
+    
+    /* Dark section */
+    .dark-section {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+    }
+    
+    .template-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .template-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 4px;
+      transition: transform 0.3s;
+    }
+    
+    .template-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .template-item h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .template-item p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .template-item a {
+      color: var(--text-light);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 600;
+    }
+    
+    .template-item a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Expert guidance section */
+    .experts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .expert-card {
+      text-align: center;
+    }
+    
+    .expert-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .expert-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .expert-title {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    
+    .expert-contact {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+    }
+    
+    .expert-contact:hover {
+      background-color: #333;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background-color: var(--bg-primary);
+      text-align: center;
+    }
+    
+    .cta-buttons {
+      margin-top: 2rem;
+    }
+    
+    .cta-buttons .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      margin: 0 0.5rem 1rem 0.5rem;
+      text-transform: uppercase;
+    }
+    
+    .cta-buttons .primary {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+    }
+    
+    .cta-buttons .secondary {
+      border: 1px solid var(--text-dark);
+      color: var(--text-dark);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--bg-secondary);
+      color: var(--text-light);
+      padding: 3rem 5% 2rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-column h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-column a {
+      color: var(--text-light);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    
+    .footer-column a:hover {
+      opacity: 1;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--bg-primary);
+      min-width: 200px;
+      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-item {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: var(--text-dark);
+    }
+    
+    .dropdown-item:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+    
+    /* Resource filter controls */
+    .resource-filters {
+      margin: 2rem 0;
+    }
+    
+    .search-box {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      position: relative;
+      display: flex;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    
+    .search-btn {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+      border: none;
+      padding: 0 1.5rem;
+      margin-left: 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    
+    /* Modal styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .modal {
+      background-color: var(--bg-primary);
+      border-radius: 6px;
+      max-width: 800px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2rem;
+      position: relative;
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+    
+    .modal-content {
+      margin-top: 1rem;
+    }
+    
+    .modal-content h2 {
+      margin-top: 0;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1rem;
+    }
+    
+    /* Tabs for content viewing */
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 1rem;
+    }
+    
+    .tab {
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      margin-right: 0.5rem;
+      border: 1px solid transparent;
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+    }
+    
+    .tab.active {
+      border-color: #ddd;
+      background-color: white;
+      margin-bottom: -1px;
+    }
+    
+    .tab-content {
+      padding: 1rem 0;
+    }
+    
+    .tab-panel {
+      display: none;
+    }
+    
+    .tab-panel.active {
+      display: block;
+    }
+    
+    /* Template form styling */
+    .template-form {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    
+    .form-textarea {
+      min-height: 150px;
+    }
+    
+    .form-actions {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .form-btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .form-btn-primary {
+      background-color: var(--btn-primary);
+      color: var(--text-light);
+    }
+    
+    .form-btn-secondary {
+      background-color: #e0e0e0;
+      color: var(--text-dark);
+    }
+    
+    /* Print styles */
+    @media print {
+      header, footer, .page-header, .cta-section, .modal-close {
+        display: none;
+      }
+      
+      .modal {
+        position: static;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+      }
+      
+      .template-form {
+        border: none;
+      }
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      
+      nav ul {
+        display: none;
+      }
+      
+      .cta-buttons .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      
+      .resources-grid,
+      .template-list,
+      .experts-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .resource-categories {
+        flex-direction: column;
+      }
+      
+      .category-btn {
+        width: 100%;
+      }
+      
+      .modal {
+        width: 95%;
+        padding: 1rem;
+      }
+      
+      .tabs {
+        flex-wrap: wrap;
+      }
+      
+      .tab {
+        flex: 1 0 auto;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with navigation -->
+  <header>
+    <div class="logo">
+      Law & Order
+    </div>
+    <div class="feature-controls">
+      <div class="language-toggle">
+        <button class="language-btn active" data-lang="en">EN</button>
+        <button class="language-btn" data-lang="hi">हिं</button>
+      </div>
+      <div class="voice-control">
+        <button class="voice-btn" id="voice-toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 15c1.66 0 3-1.34 3-3V6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V6z"/>
+            <path d="M17 12c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-2.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+          </svg>
+          <span class="voice-label">Voice</span>
+        </button>
+      </div>
+    </div>
+    
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Workplace Rights</a>
+          <div class="dropdown-content">
+            <a class="dropdown-item" href="discrimination.html">Workplace Discrimination</a>
+            <a class="dropdown-item" href="bureaucratic-challenges.html">policy challenges</a>
+            <a class="dropdown-item" href="labor-rights.html">Labour Rights & wages</a>
+            <a class="dropdown-item" href="workplace-safety.html">Workplace Safety</a>
+          </div>
+        </li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="success-stories.html">Success Stories</a></li>
+      </ul>
+    </nav>
+    <a href="consultation.html" class="free-consultation-btn">FREE CONSULTATION</a>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>Employee Rights Resources</h1>
+    <p>Access tools, templates, guides, and expert information to help you understand your workplace rights under Indian labour laws and take action when necessary.</p>
+  </section>
+
+  <!-- Resource Filter Section -->
+  <section>
+    <div class="container">
+      <h2>Find the Right Resources</h2>
+      
+      <div class="resource-filters">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="Search for resources...">
+          <button class="search-btn">Search</button>
+        </div>
+        
+        <div class="resource-categories">
+          <button class="category-btn active" data-category="all">All Resources</button>
+          <button class="category-btn" data-category="documentation">Documentation Tools</button>
+          <button class="category-btn" data-category="templates">Templates & Forms</button>
+          <button class="category-btn" data-category="legal">Legal Guides</button>
+          <button class="category-btn" data-category="advocacy">Self-Advocacy</button>
+          <button class="category-btn" data-category="industry">Industry-Specific</button>
+        </div>
+      </div>
+      
+      <div class="resources-grid">
+        <!-- Documentation Resources -->
+        <div class="resource-card" data-categories="documentation">
+          <div class="resource-header">
+            <h3>Incident Documentation Kit</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>Comprehensive tools for properly documenting workplace incidents, discrimination, and policy violations in accordance with Indian labour laws. Includes templates, checklists, and best practices.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Documentation</span>
+              <span class="resource-tag">All Issues</span>
+            </div>
+            <div class="resource-links">
+              <a href="#" class="resource-btn" data-modal="documentation-kit">View Resource</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="resource-card" data-categories="documentation templates">
+          <div class="resource-header">
+            <h3>Communication Tracker</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>Track all workplace communications related to your issue. Record dates, participants, discussion points, and outcomes for a complete record of interactions in case of future legal proceedings.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Documentation</span>
+              <span class="resource-tag">Templates</span>
+            </div>
+            <div class="resource-links">
+              <a href="#" class="resource-btn" data-modal="communication-tracker">View Tracker</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Legal Resources -->
+        <div class="resource-card" data-categories="legal">
+          <div class="resource-header">
+            <h3>Indian Employee Rights Handbook</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>Comprehensive guide to Indian labour laws including Industrial Disputes Act, Factories Act, Payment of Wages Act, and more. Covers discrimination, harassment, wage issues, safety regulations, and leave policies.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Legal Guide</span>
+              <span class="resource-tag">Reference</span>
+            </div>
+            <div class="resource-links">
+              <a href="#" class="resource-btn" data-modal="employee-rights-handbook">View Handbook</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="resource-card" data-categories="legal discrimination">
+          <div class="resource-header">
+            <h3>Anti-Discrimination Laws in India</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>In-depth analysis of anti-discrimination provisions within Indian Constitution, labour laws, and key Supreme Court judgments regarding workplace discrimination based on gender, caste, religion, and disability.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Legal Guide</span>
+              <span class="resource-tag">Discrimination</span>
+            </div>
+            <div class="resource-links">
+              <a href="#" class="resource-btn" data-modal="anti-discrimination-laws">View Guide</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Action Templates -->
+        <div class="resource-card" data-categories="templates advocacy">
+          <div class="resource-header">
+            <h3>Formal Complaint Templates</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>Professional templates for filing formal complaints about discrimination, harassment, wage violations, safety concerns, and other workplace issues to relevant Indian authorities.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Templates</span>
+              <span class="resource-tag">Action Tools</span>
+            </div>
+            <div class="resource-links">
+              <a href="#" class="resource-btn" data-modal="complaint-templates">View Templates</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="resource-card" data-categories="legal advocacy">
+          <div class="resource-header">
+            <h3>Labour Commissioner Filing Guide</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>Step-by-step instructions for filing complaints with the Labour Commissioner's Office in India, including required documentation, timelines, and procedures for different types of workplace grievances.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Legal Guide</span>
+              <span class="resource-tag">Labour Laws</span>
+            </div>
+            <div class="resource-links">
+              <a href="#" class="resource-btn" data-modal="labour-commissioner-guide">View Guide</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Industry-Specific Resources -->
+        <div class="resource-card" data-categories="industry legal">
+          <div class="resource-header">
+            <h3>IT Worker Rights in India</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>Specialized guide addressing unique challenges faced by IT professionals in India, including overtime policies, non-compete agreements, intellectual property rights, and workplace discrimination issues.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Industry-Specific</span>
+              <span class="resource-tag">IT Sector</span>
+            </div>
+            <div class="resource-links">
+              <a href="#" class="resource-btn" data-modal="it-worker-rights">View Guide</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="resource-card" data-categories="industry legal">
+          <div class="resource-header">
+            <h3>Rights of Factory Workers in India</h3>
+          </div>
+          <div class="resource-content">
+            <div class="resource-description">
+              <p>Comprehensive guide to rights under Factories Act, Industrial Disputes Act, and other protective legislation for manufacturing workers, including safety regulations, working hours, and benefits.</p>
+            </div>
+            <div class="resource-tags">
+              <span class="resource-tag">Industry-Specific</span>
+              <span class="resource-tag">Manufacturing</span>
+            </div>
+            <div class="resource-links">
+              <a href="#" class="resource-btn" data-modal="factory-worker-rights">View Guide</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Templates Library Section -->
+  <section class="dark-section">
+    <div class="container">
+      <h2>Template Library</h2>
+      <p>Ready-to-use templates for addressing workplace issues in India:</p>
+      
+      <div class="template-list">
+        <div class="template-item">
+          <h3>Grievance Letter to HR</h3>
+          <p>Professional template for documenting and reporting workplace issues to HR departments in compliance with Indian labour laws.</p>
+          <a href="#" data-modal="grievance-letter">View & Use Template →</a>
+        </div>
+        
+        <div class="template-item">
+          <h3>Incident Log</h3>
+          <p>Structured format for recording dates, times, locations, and details of workplace incidents or policy violations.</p>
+          <a href="#" data-modal="incident-log">View & Use Template →</a>
+        </div>
+        
+        <div class="template-item">
+          <h3>Sexual Harassment Complaint (POSH)</h3>
+          <p>Template for filing sexual harassment complaints under the Prevention of Sexual Harassment (POSH) Act to Internal Complaints Committee.</p>
+          <a href="#" data-modal="posh-complaint">View & Use Template →</a>
+        </div>
+        
+        <div class="template-item">
+          <h3>Wage Claim Form</h3>
+          <p>Template for documenting unpaid wages, benefits, or overtime issues to file with Labour Commissioner or appropriate authority.</p>
+          <a href="#" data-modal="wage-claim">View & Use Template →</a>
+        </div>
+        
+        <div class="template-item">
+          <h3>Appeal Letter for Wrongful Termination</h3>
+          <p>Format for appealing termination that violates terms of employment or labour laws, with references to relevant Indian legislation.</p>
+          <a href="#" data-modal="termination-appeal">View & Use Template →</a>
+        </div>
+        
+        <div class="template-item">
+          <h3>Request for Workplace Accommodation</h3>
+          <p>Template for formally requesting reasonable accommodations for disabilities, medical conditions, or religious practices.</p>
+          <a href="#" data-modal="accommodation-request">View & Use Template →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expert Guidance Section -->
+  <section>
+    <div class="container">
+      <h2>Expert Guidance</h2>
+      <p>Connect with experienced labour law experts for personalized advice on your workplace situation:</p>
+      
+      <div class="experts-grid">
+        <div class="expert-card">
+          <div class="expert-image" style="background-image: url('/api/placeholder/200/200');"></div>
+          <h3 class="expert-name">Priya Sharma</h3>
+          <p class="expert-title">Labour Rights Advocate</p>
+          <p>Specializes in workplace discrimination and harassment cases with 15+ years of experience in Indian labour disputes.</p>
+          <a href="#" class="expert-contact">Schedule Consultation</a>
+        </div>
+        
+        <div class="expert-card">
+          <div class="expert-image" style="background-image: url('/api/placeholder/200/200');"></div>
+          <h3 class="expert-name">Rajesh Gupta</h3>
+          <p class="expert-title">Labour Law Attorney</p>
+          <p>Former Labour Commissioner with expertise in wage disputes, unfair termination, and employee benefits under Indian law.</p>
+          <a href="#" class="expert-contact">Schedule Consultation</a>
+        </div>
+        
+        <div class="expert-card">
+          <div class="expert-image" style="background-image: url('/api/placeholder/200/200');"></div>
+          <h3 class="expert-name">Kavita Reddy</h3>
+          <p class="expert-title">HR Compliance Specialist</p>
+          <p>Advises on workplace policy implementation, document preparation, and negotiation strategies for employee grievances.</p>
+          <a href="#" class="expert-contact">Schedule Consultation</a>
+        </div>
+        
+        <div class="expert-card">
+          <div class="expert-image" style="background-image: url('/api/placeholder/200/200');"></div>
+          <h3 class="expert-name">Sunil Mehta</h3>
+          <p class="expert-title">Industry Rights Specialist</p>
+          <p>Focuses on IT, manufacturing, and service industry employee rights with specialized knowledge of sector-specific regulations.</p>
+          <a href="#" class="expert-contact">Schedule Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Take Action on Your Workplace Rights?</h2>
+      <p>Our team is here to help you understand your rights and explore your options for resolution under Indian labour laws.</p>
+      
+      <div class="cta-buttons">
+        <a href="consultation.html" class="btn primary">Schedule Free Consultation</a>
+        <a href="documentation.html" class="btn secondary">Download Documentation Kit</a>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Modal Structure - These would contain the actual content of each resource -->
+  <div class="modal-overlay" id="resourceModal">
+    <div class="modal">
+      <button class="modal-close">&times;</button>
+      <div class="modal-content">
+        <!-- Content will be dynamically loaded here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript would be included here for functionality -->
+  <script>
+    // Basic JavaScript for the page functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Category filtering
+      const categoryButtons = document.querySelectorAll('.category-btn');
+      const resourceCards = document.querySelectorAll('.resource-card');
+      
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Update active button
+          categoryButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          const category = this.getAttribute('data-category');
+          
+          // Filter resources
+          resourceCards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-categories').includes(category)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+      
+      // Modal functionality
+      const modalLinks = document.querySelectorAll('[data-modal]');
+      const modalOverlay = document.getElementById('resourceModal');
+      const modalContent = document.querySelector('.modal-content');
+      const modalClose = document.querySelector('.modal-close');
+      
+      modalLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const resourceId = this.getAttribute('data-modal');
+          
+          // Here you would typically load content via AJAX
+          // For this example, we'll just set some placeholder content
+          modalContent.innerHTML = `
+            <h2>${this.textContent}</h2>
+            <p>This would contain the full content for the ${resourceId} resource.</p>
+            <div class="template-form">
+              <div class="form-group">
+                <label class="form-label">Sample Form Field</label>
+                <input type="text" class="form-input" placeholder="Enter information here">
+              </div>
+              <div class="form-actions">
+                <button class="form-btn form-btn-primary">Download</button>
+                <button class="form-btn form-btn-secondary">Print</button>
+              </div>
+            </div>
+          `;
+          
+          modalOverlay.style.display = 'flex';
+        });
+      });
+      
+      modalClose.addEventListener('click', function() {
+        modalOverlay.style.display = 'none';
+      });
+      
+      window.addEventListener('click', function(e) {
+        if (e.target === modalOverlay) {
+          modalOverlay.style.display = 'none';
+        }
+      });
+      
+      // Search functionality
+      const searchInput = document.querySelector('.search-input');
+      const searchBtn = document.querySelector('.search-btn');
+      
+      const performSearch = function() {
+        const searchTerm = searchInput.value.toLowerCase();
+        
+        resourceCards.forEach(card => {
+          const title = card.querySelector('h3').textContent.toLowerCase();
+          const description = card.querySelector('.resource-description p').textContent.toLowerCase();
+          const tags = card.querySelector('.resource-tags').textContent.toLowerCase();
+          
+          if (title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      };
+      
+      searchBtn.addEventListener('click', performSearch);
+      searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          performSearch();
+        }
+      });
+    });
+  </script>
+  <script>
+    // Voice toggle logic
+    document.getElementById('voice-toggle').addEventListener('click', function () {
+      this.classList.toggle('active');
+      const label = this.querySelector('.voice-label');
+      label.textContent = label.textContent === 'Voice' ? 'Mute' : 'Voice';
+    });
+  
+    // Language toggle logic
+    const langBtns = document.querySelectorAll('.language-btn');
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        langBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.documentElement.lang = btn.dataset.lang;
+        // Translation logic can be implemented here
+      });
+    });
+  </script>
+  
+</body>
+</html>

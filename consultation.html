@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Consultation | Law & Order</title>
+    <style>
+      /* Base theme colors - black theme */
+      :root {
+        --bg-primary: #e5e5e0;
+        --bg-secondary: #1c1c1c;
+        --text-light: #e5e5e0;
+        --text-dark: #1c1c1c;
+        --accent: #333333;
+        --btn-primary: #1c1c1c;
+        --btn-hover: #333333;
+        --section-padding: 4rem 5%;
+      }
+      
+      body {
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-dark);
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+      
+      /* Header styles */
+      header {
+        background-color: var(--bg-primary);
+        padding: 1rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .logo {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--text-dark);
+      }
+      
+      nav ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      nav ul li {
+        margin: 0 1rem;
+      }
+      
+      nav ul li a {
+        color: var(--text-dark);
+        text-decoration: none;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.3s;
+      }
+      
+      nav ul li a:hover {
+        color: #555;
+      }
+      
+      .free-consultation-btn {
+        background-color: var(--btn-primary);
+        color: var(--text-light);
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: background-color 0.3s;
+        font-weight: 600;
+      }
+      
+      .free-consultation-btn:hover {
+        background-color: #333;
+      }
+      
+      /* Section styling */
+      section {
+        padding: var(--section-padding);
+      }
+      
+      section h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      
+      /* Form styles */
+      form {
+        background-color: var(--bg-secondary);
+        color: var(--text-light);
+        padding: 2rem;
+        /* Remove the border-radius to make it square */
+        border-radius: 0;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      
+      form h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+      
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #ddd;
+      }
+      
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #444;
+        border-radius: 4px;
+        font-size: 1rem;
+        background-color: #333;
+        color: var(--text-light);
+        transition: border-color 0.3s;
+      }
+      
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
+      
+      .form-group textarea {
+        height: 120px;
+        resize: vertical;
+      }
+      
+      .form-actions {
+        margin-top: 2rem;
+        text-align: center;
+      }
+      
+      .btn-primary {
+        background-color: var(--btn-primary);
+        color: var(--text-light);
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: background-color 0.3s;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+      }
+      
+      .btn-primary:hover {
+        background-color: #333;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        nav ul {
+          display: none;
+        }
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            Law & Order
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="consultation.html">Contact Us</a></li>
+            </ul>
+        </nav>
+2    </header>
+
+    <section class="container">
+        <form action="#" method="post">
+            <h2>Request a Free Consultation</h2>
+            <p>Please fill out the form below to schedule a consultation with our team.  We will review your information and contact you to discuss your case.</p>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="issue">Describe Your Issue</label>
+                <textarea id="issue" name="issue" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="details">Additional Details (Optional)</label>
+                <textarea id="details" name="details"></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Submit Request</button>
+            </div>
+        </form>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Law & Order. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
